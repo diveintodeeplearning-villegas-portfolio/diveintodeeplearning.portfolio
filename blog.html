@@ -29,6 +29,10 @@
         height: 400px;  /* The height is 400 pixels */
         width: 100%;  /* The width is the width of the web page */
        }
+
+       .bg-dark2{
+    background-color: #512E5F  ; /*#512E5F*/
+}
     </style>
 
 
@@ -77,7 +81,7 @@
       <div class="site-mobile-menu-body"></div>
     </div>
 
-    <div class="border-bottom top-bar py-2 bg-dark" id="home-section">
+    <div class="border-bottom top-bar py-2 bg-dark2" id="home-section">
       <div class="container">
         <div class="row">
           <div class="col-md-6">
@@ -114,7 +118,7 @@
         <div class="row align-items-center">
 
           <div class="col-11 col-xl-2">
-            <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0"> <a href="index.html#">
+            <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0"></a> <a href="index.html#">
               <img src="images/logo.jpg" alt="Logo" class="img-fluid"></a></h1>
           </div>
           <div class="col-12 col-md-10 d-none d-xl-block">
@@ -273,20 +277,21 @@
                 </div>
             </div>
         </div>
-    </div>
+    
 </section>
     <!-- Gallery Area End -->
 
 
-    <a href="#" class="bg-primary py-5 d-block">
+    <a href="#" class="bg-dark py-5 d-block"><!--bg-primary-->
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-md10"><h2 class="text-white">Let's Get Started</h2></div>
+          <div class="col-md10"><h2 class="text-primary">Let's Get Started</h2></div> <!--text-white-->
         </div>
       </div>
     </a>
 
-    <footer class="site-footer">
+    <section  id="newsletter-section">
+    <footer class="site-footer bg-dark2">
       <div class="container">
         <div class="row">
           <div class="col-md-9">
@@ -298,10 +303,10 @@
               <div class="col-md-3 ml-auto">
                 <h2 class="footer-heading mb-4">Features</h2>
                 <ul class="list-unstyled">
-                  <li><a href="index.html#about-section" >About Us</a></li>
-                  <li><a href="index.html#services-section" >Services</a></li>
-                  <li><a href="index.html#testimonials-section" >Testimonials</a></li>
-                  <li><a href="index.html#contact-section" >Contact Us</a></li>
+                  <li><a href="#about-section" >About Us</a></li>
+                  <li><a href="#services-section" >Services</a></li>
+                  <li><a href="#testimonials-section" >Testimonials</a></li>
+                  <li><a href="#contact-section" >Contact Us</a></li>
                 </ul>
               </div>
               <div class="col-md-3">
@@ -313,13 +318,19 @@
           </div>
           <div class="col-md-3">
             <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
-            <form action="#" method="post">
+            <form  method="post"> <!--action="addemail.php"-->
               <div class="input-group mb-3">
-                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                  <button class="btn btn-primary text-white" type="button" id="button-addon2">Send</button>
-                </div>
+                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Name" aria-label="Name" aria-describedby="button-addon2" name="name" id="name" required>
+                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Email" aria-label="Email" aria-describedby="button-addon2" name="email" id ="email" required>
+                <div class="input-group-append "  >
+                  <button class="btn btn-primary text-white" type="submit" id="button-addon2" value="Subscribe" name="subscribe">Send </button>
+                </div>        
               </div>
+              
+
+
+   
+
             </form>
           </div>
         </div>
@@ -337,6 +348,10 @@
         </div>
       </div>
     </footer>
+ </section>
+
+
+ 
 
   </div> <!-- .site-wrap -->
 

@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php
+require_once "head.php";
+  session_start();
+
+ ?>
+ <!DOCTYPE html>
 <html lang="en">
   <head>
     <title>AI Solutions &mdash;Artificial Intelligence, Deep Learning and Machine Learning</title>
@@ -23,12 +28,12 @@
     <link rel="stylesheet" href="css/aos.css">
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
      <style>
         /* ------------------------------------------
 [Master Stylesheet]
 
 --------------------------------------------- */
-
 #map {
             height: 600px;
              width: 100%; }
@@ -42,26 +47,7 @@
               border-radius: 10px; }
 /*# sourceMappingURL=style.css.map */
 
-.oxy-search-form input[type=submit] {
-    background: url(https://www.freeiconspng.com/uploads/search-icon-png-2.png) no-repeat center;
-    background-size: 15px;
-    text-indent: -9999em;
-    border-top-style: hidden;
-    border-right-style: hidden;
-    border-left-style: hidden;
-    border-bottom-style: hidden;
-}
 
-.bg-dark2{
-    background-color: #512E5F  ; /*#512E5F*/
-}
-
-   .hovergrey:hover, .hovergrey:active, .hovergrey:focus {
-    color: white;
-    background-color: #512E5F; } /*  #333333  */
-.icon-laptop2:hoover{color:white;}
-
-   
     </style>
 
   </head>
@@ -117,9 +103,9 @@
         <div class="row align-items-center">
 
           <div class="col-11 col-xl-2">
-           <!-- <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0"> <a href="index.html">
-              <img src="images/logo.jpg" alt="Logo" class="img-fluid"></a></h1>-->
-              <img src="images/logo.jpg" alt="Logo" class="img-fluid">
+            <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0"> </a><a href="index.html">
+              <img src="images/logo.jpg" alt="Logo" class="img-fluid"></a></h1>
+           <!--   <img src="images/logo.jpg" alt="Logo" class="img-fluid">-->
           </div>
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
@@ -455,7 +441,7 @@
             <div class="unit-4 d-flex hovergrey">
               <div class="unit-4-icon mr-4"><span class="text-primary icon-laptop2"></span></div>
               <div>
-                <h3>Convolutional neural network</h3>
+                <h3 >Convolutional neural network</h3>
                 <p>A convolution layer transforms an input volume into an output volume of different size.</p>
                 <p><a href="#">Learn More</a></p>
               </div>
@@ -465,7 +451,7 @@
             <div class="unit-4 d-flex hovergrey">
               <div class="unit-4-icon mr-4"><span class="text-primary icon-laptop2"></span></div>
               <div>
-                <h3>Recurrent Neural Networks</h3>
+                <h3 >Recurrent Neural Networks</h3>
                 <p>Recurrent Neural Networks (RNN) are very effective for Natural Language Processing and other sequence tasks because they have "memory". They can read inputs (such as words) one at a time, and remember some information/context through the hidden layer activations that get passed from one time-step to the next. This allows a uni-directional RNN to take information from the past to process later inputs. A bidirection RNN can take context from both the past and the future.</p>
                 <p><a href="#">Learn More</a></p>
               </div>
@@ -475,7 +461,7 @@
             <div class="unit-4 d-flex hovergrey">
               <div class="unit-4-icon mr-4"><span class="text-primary icon-laptop2"></span></div>
               <div>
-                <h3>LSTM</h3>
+                <h3 >LSTM</h3>
                 <p>Long short-term memory (LSTM) is an artificial recurrent neural network (RNN) architecture used in the field of deep learning. Unlike standard feedforward neural networks, LSTM has feedback connections.</p>
                 <p><a href="#">Learn More</a></p>
               </div>
@@ -487,7 +473,7 @@
             <div class="unit-4 d-flex hovergrey">
               <div class="unit-4-icon mr-4"><span class="text-primary icon-laptop2"></span></div>
               <div>
-                <h3>NLP</h3>
+                <h3 >NLP</h3>
                 <p>Natural language processing (NLP) is one of the most important technologies of the information age. Understanding complex language utterances is also a crucial part of artificial intelligence.</p>
                 <p><a href="#">Learn More</a></p>
               </div>
@@ -497,7 +483,7 @@
             <div class="unit-4 d-flex hovergrey">
               <div class="unit-4-icon mr-4"><span class="text-primary icon-laptop2"></span></div>
               <div>
-                <h3>Deep learning on the Cloud</h3>
+                <h3 >Deep learning on the Cloud</h3>
                 <p>Creating and training faster deep learning models on the Cloud.</p>
                 <p><a href="#">Learn More</a></p>
               </div>
@@ -507,7 +493,7 @@
             <div class="unit-4 d-flex hovergrey">
               <div class="unit-4-icon mr-4"><span class="text-primary icon-laptop2"></span></div>
               <div>
-                <h3>Improving deep neural networks</h3>
+                <h3 >Improving deep neural networks</h3>
                 <p>Improving gradient checking, initialization and regularization.</p>
                 <p><a href="#">Learn More</a></p>
               </div>
@@ -648,7 +634,7 @@
             </div>
 
      </div>
-</div>
+
 <!--/.Carousel Wrapper-->
     </section>
     
@@ -681,7 +667,7 @@
                 <div class="unit-4 hovergrey">
                   <div class="unit-4-icon mr-4 mb-3 "><span class=" text-primary icon-phonelink"></span></div> <!--text-secondary-->
                   <div>
-                    <h3>Deep Learning Specialties</h3>
+                    <h3 >Deep Learning Specialties</h3>
                     <p>Create, develop and train different types of deep learning models.</p>
                     <p class="mb-0"><a href="#">Learn More</a></p>
                   </div>
@@ -691,7 +677,7 @@
                 <div class="unit-4 hovergrey">
                   <div class="unit-4-icon mr-4 mb-3"><span class=" text-primary  icon-build "></span></div> <!--text-secondary-->
                   <div>
-                    <h3>Improving deep learning models</h3>
+                    <h3 >Improving deep learning models</h3>
                     <p>Improve deep learning models using different techniques such as changing hyperparameters, improve training data, and so on.</p>
                     <p class="mb-0"><a href="#">Learn More</a></p>
                   </div>
@@ -802,7 +788,8 @@
 </div>
 <!--/.Carousel Wrapper-->
     </div>
-    </section>
+    </div>
+   
 
    <section class="site-section" id="blog-section">
       <div class="container">
@@ -921,7 +908,7 @@
 
                 <div class="col-md-12">
                   <label class="text-black" for="subject">Subject</label>
-                  <input type="subject" id="subject" class="form-control">
+                  <input type="text" id="subject" class="form-control">
                 </div>
               </div>
 
@@ -988,6 +975,7 @@ function initMap() {
       </div>
     </section>
 
+
     <a href="#" class=" bg-dark py-5 d-block"> <!-- bg-primary-->
       <div class="container">
         <div class="row justify-content-center">
@@ -995,7 +983,10 @@ function initMap() {
         </div>
       </div>
     </a>
+  
 
+
+   <section  id="newsletter-section">
     <footer class="site-footer bg-dark2">
       <div class="container">
         <div class="row">
@@ -1023,13 +1014,17 @@ function initMap() {
           </div>
           <div class="col-md-3">
             <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
-            <form action="#" method="post">
+            <form  action="addemail.php" method="post"> <!--action="addemail.php"-->
               <div class="input-group mb-3">
-                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2" name="email" required>
-                <div class="input-group-append">
-                  <button class="btn btn-primary text-white" type="submit" id="button-addon2" value="Subscribe">Send</button>
+                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Name" aria-label="Name" aria-describedby="button-addon2" name="name" id="name" required>
+                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Email" aria-label="Email" aria-describedby="button-addon2" name="email" id ="email" required>
+                <div class="input-group-append "  >
+                  <button class="btn btn-primary text-white popup" onclick="mypopup()"type="submit" id="button-addon2" value="Subscribe" name="subscribe">Send </button>
+                  
                 </div>
+                
               </div>
+              <span class="popuptext text-primary" id="myPopup">Thank you!<br><span class="text-white">You're subscribed!</span></span>
             </form>
           </div>
         </div>
@@ -1047,9 +1042,12 @@ function initMap() {
         </div>
       </div>
     </footer>
+ </section>
 
+
+ 
   </div> <!-- .site-wrap -->
-
+</div>
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
@@ -1093,6 +1091,14 @@ function initMap() {
      
 
   <script src="js/main.js"></script>
+<script>
+// When the user clicks on div, open the popup
+function mypopup() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+</script>
 
   </body>
 </html>
+
