@@ -28,6 +28,8 @@
     <style>
        
     </style>
+    <link rel="shortcut icon" type="image/jpg" href="images/ico.jpg">
+
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
   
@@ -304,14 +306,19 @@
           </div>
           <div class="col-md-3">
             <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
-            <form action="#" method="post">
-              <div class="input-group mb-3">
-                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                  <button class="btn btn-primary text-white" type="button" id="button-addon2">Send</button>
-                </div>
-              </div>
-            </form>
+             <form  method="post" action="addemail.php"> <!--action="addemail.php" onsubmit="return false"-->
+	              <div class="input-group mb-3">
+	                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Name" aria-label="Name" aria-describedby="button-addon2" name="name" id="name" required>
+	                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Email" aria-label="Email" aria-describedby="button-addon2" name="email" id ="email" required>
+	                <div class="input-group-append "  >
+	                  <button class="btn btn-primary text-white" onclick="funcSubscribe()" type="submit" id="button-addon2" value="Subscribe" name="subscribe">Send </button>
+	                   
+	                </div>
+	                
+	              </div>
+	             <span class="text-primary" id="subMessage">Thank you!<br><span class="text-white">You're subscribed!</span></span>
+	            <span class="text-white" id="failMessage">Please enter a valid email address</span>
+	            </form>
           </div>
         </div>
         <div class="row pt-5 mt-5 text-center">
@@ -348,6 +355,27 @@
   
   <script src="js/main.js"></script>
   
+<script  type="text/javascript">
+// When the user clicks on div, open the popup
+function funcSubscribe() {
+ //var message = "<?PHP echo $message ?>"; 
+ //   if(message == "success"){
+         var x = document.getElementById("subMessage");
+             x.style.display = "inline-block";
+//} else {
+  //  var f = document.getElementById("failMessage");
+    //    f.style.display = "inline-block";
+//}
+}
+</script>
+
+<script>
+    var x = document.getElementById("subMessage");
+    x.style.display = "none";
+     
+    var f = document.getElementById("failMessage");
+    f.style.display = "none";
+</script>
 
 
   </body>
