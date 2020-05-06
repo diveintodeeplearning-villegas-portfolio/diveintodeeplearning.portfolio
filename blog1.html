@@ -209,7 +209,33 @@
                 
               </ul>
               <!-- END comment-list -->
-              
+              <div class="reply-form-wrap pt-5" id="reply-form-section">
+                <form name = "comment-form" action="#" method="post" class="" id="comment-form" onsubmit="hideform()">
+                   <div class="form-group">
+                    <input type="hidden" class="form-control" id="blog_id" name="blog_id" value="1">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="message" name="message" value = "Join the disscusion" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="website">Website</label>
+                    <input type="url" class="form-control" id="website" name="website">
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" value="Post Comment" class="btn btn-primary btn-md text-white" name="submit" id="submit" required>
+                  </div>
+                </form>
+              </div>
+
+		    
               <div class="comment-form-wrap pt-5">
                 <h3 class="mb-5">Leave a comment</h3>
                 <form action="#" class="">
