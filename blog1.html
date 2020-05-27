@@ -25,14 +25,53 @@
     <link rel="stylesheet" href="css/style.css">
      <link rel="stylesheet" href="style.css">
      <link rel="shortcut icon" type="image/jpg" href="images/ico.jpg">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+
+      <style>
+
+/* Style the search field */
+form.findme input[type=text] {
+  padding: 3px; 
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+  
+}
+
+    /* Style the submit button */
+form.findme button {
+  float: left;
+  width: 20%;
+  padding: 3px;
+  background: #32dbc6;;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.findme button:hover {
+      color: grey; 
+      background:#1ec7b2;
+}
+
+form.findme button:focus {outline:0;}
+form.findme input[type=text]:focus {outline:0;}
+   </style>
+   
 
 
-    <style>
-       
-    </style>
+
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
   
+
+
   <div class="site-wrap">
 
     <div class="site-mobile-menu site-navbar-target">
@@ -58,19 +97,14 @@
               <li><a href="https://github.com/aisolutionsanddeeplearning" class="p-2"><span class="icon-github"></span></a></li>
               
               <li><a href="https://www.linkedin.com/in/yazmin-v-52548a183/" class="p-2"><span class="icon-linkedin"></span></a></li>
-               <li><a href="#" class="p-2"><span class="icon-search"></span></a></li>
-              <li><div class="search-bar social-media">
-  <input class="input-text" type="text" name="eingabe"  id="search">
+                <!--<li><a href="#" class="p-2"><span class="icon-search"></span></a></li>-->
+ <li><div class="search-bar social-media">
+                  <!--///YOUR FORM/INPUT BOX-->
+            <form class="findme" action="search.php" method="post">
+                <input class="input-text" type="text" name="findMe"  id="search">
+                   <button type="submit"><i class="icon-search"></i></button>
+            </form>
 </div></li>
-                <script>
-                  var defaultText = "";
-                   var searchBox = document.getElementById(""); //default text after load 
-                   searchBox.value = defaultText; //on focus behaviour
-                    searchBox.onfocus = function() { if (this.value == defaultText) {//clear text field 
-                    this.value = ''; } } //on blur behaviour 
-                    searchBox.onblur = function() { if (this.value == "") {//restore default text 
-                    this.value = defaultText; } }
-                </script>
             </ul>
           </div>
         </div>
@@ -106,7 +140,7 @@
                 <li class="has-children">
                     <a href="#blog-section" class="nav-link">Blog</a>
                     <ul  class="dropdown">
-                        <li><a href="index.html#latest-blog-section">Latest Blog</a></li>
+                        <li><a href="index.html#blog-section">Latest Blog</a></li>
                         <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </li>
@@ -178,38 +212,60 @@
             </div>
 
 
+            
+         
             <div class="pt-5">
-              <h3 class="mb-5">6 Comments</h3>
-              <ul class="comment-list">
-                <li class="comment">
-                  <div class="vcard bio">
-                    <img src="images/person_2.jpg" alt="Image">
-                  </div>
-                  <div class="comment-body">
-                    <h3>Jacob Smith</h3>
-                    <div class="meta">April 8, 2020 at 2:21pm</div>
-                    <p>Thank you for sharing this deep learning blog.</p>
-                    <p><a href="#" class="reply">Reply</a></p>
-                  </div>
-                </li>
+              <h3 class="mb-5">Comments</h3>
+              
 
-                <li class="comment">
-                  <div class="vcard bio">
-                    <img src="images/person_3.jpg" alt="Image">
+             <!-- <div id="add_comments"></div>
+             <div id="content"> <strong>Comment form</strong></div>
+            <div id="comments" class="container">
+                <button id="comment-button">Comment</button>
+            </div>
+            -->
+
+              <div id="output"></div>
+
+
+
+            
+
+
+              <div class="comment-form-wrap pt-5" id="comment-form-section">
+                <h3 class="mb-5">Leave a comment</h3>
+                <form name = "comment-form" action="#" method="post" class="" id="comment-form" onsubmit="showComments('1')">
+                   <div class="form-group">
+                    <input type="hidden" class="form-control" id="blog_id" name="blog_id" value="1">
+                     <input type="hidden" class="form-control" id="comment_id" name="comment_id" placeholder="Name" > 
                   </div>
-                  <div class="comment-body">
-                    <h3>Chris Meyer</h3>
-                    <div class="meta">April 8, 2020 at 2:21pm</div>
-                    <p>I'm using GANGs to create images.  </p>
-                    <p><a href="#" class="reply">Reply</a></p>
+                  <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="website">Website</label>
+                    <input type="url" class="form-control" id="website" name="website">
                   </div>
 
-                              </li>
-                            
-                
-              </ul>
-              <!-- END comment-list -->
-              <div class="reply-form-wrap pt-5" id="reply-form-section">
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" cols="30" rows="10" class="form-control" required></textarea>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" value="Post Comment" class="btn btn-primary btn-md text-white" name="submit" id="submit" required>
+                  </div>
+                    <span class="text-primary" id="subCommentMessage">Thank you for your comments!</span>
+                    <span class="text-red" id="failCommentMessage">Please enter a valid email address</span>
+                </form>
+              </div>
+
+<!--
+<div class="reply-form-wrap pt-5" id="reply-form-section">
                 <form name = "comment-form" action="#" method="post" class="" id="comment-form" onsubmit="hideform()">
                    <div class="form-group">
                     <input type="hidden" class="form-control" id="blog_id" name="blog_id" value="1">
@@ -230,42 +286,18 @@
                     <input type="url" class="form-control" id="website" name="website">
                   </div>
                   <div class="form-group">
-                    <input type="submit" value="Post Comment" class="btn btn-primary btn-md text-white" name="submit" id="submit" required>
+                    <input type="submit" value="Post Reply" class="btn btn-primary btn-md text-white" name="submit" id="submit" required>
                   </div>
                 </form>
               </div>
+-->
 
-		    
-              <div class="comment-form-wrap pt-5">
-                <h3 class="mb-5">Leave a comment</h3>
-                <form action="#" class="">
-                  <div class="form-group">
-                    <label for="name">Name *</label>
-                    <input type="text" class="form-control" id="name">
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" class="form-control" id="email">
-                  </div>
-                  <div class="form-group">
-                    <label for="website">Website</label>
-                    <input type="url" class="form-control" id="website">
-                  </div>
 
-                  <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea name="message" id="message" cols="30" rows="10" class="form-control"></textarea>
-                  </div>
-                  <div class="form-group">
-                    <input type="submit" value="Post Comment" class="btn btn-primary btn-md text-white">
-                  </div>
-
-                </form>
-              </div>
             </div>
 
           </div>
           <div class="col-md-4 sidebar">
+            <!--
             <div class="sidebar-box">
               <form action="#" class="search-form">
                 <div class="form-group">
@@ -274,12 +306,16 @@
                 </div>
               </form>
             </div>
+        -->
             <div class="sidebar-box">
               <div class="categories">
                 <h3>Categories</h3>
                 <menu>
-                <li><a href="#">Deep Learning<span>(1)</span></a></li>
-                <li><a href="#">Machine Learning <span>(2)</span></a></li>
+                <li> <a href="blog.html?filter=all" >All</a></li>
+                <li> <a href="blog.html?filter=cnn" >CNN</a></li>
+                <li> <a href="blog.html?filter=nlp" >NLP</a></li>
+                <li> <a href="blog.html?filter=gan" >GAN</a></li>
+                <li> <a href="blog.html?filter=dcgan" >DCGAN</a></li>
               </menu>
               </div>
             </div>
@@ -339,7 +375,7 @@
 	                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Name" aria-label="Name" aria-describedby="button-addon2" name="name" id="name" required>
 	                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Email" aria-label="Email" aria-describedby="button-addon2" name="email" id ="email" required>
 	                <div class="input-group-append "  >
-	                  <button class="btn btn-primary text-white" onclick="funcSubscribe()" type="submit" id="button-addon2" value="Subscribe" name="subscribe">Send </button>
+	                  <button class="btn btn-primary text-white" onSubmit="funcSubscribe()" type="submit" id="button-addon2" value="Subscribe" name="subscribe">Send </button>
 	                   
 	                </div>
 	                
@@ -383,6 +419,48 @@
 
   
   <script src="js/main.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="js/scripts.js"></script>
+
+  <script>
+    /*
+
+$(document).ready(function () {
+    'use strict';
+    // counter for comments and replies
+    var counter = 1;
+
+    // function for creating reply content
+    function replyButton() {
+        // if reply button is clicked
+        $("#reply-button-" + counter).click(function () {
+         $(this).hide();
+         $('#form'+(counter-1)).hide();
+        //$(this).prev(".form").hide();
+            // append reply content
+            $('<div class="form"> <p> Test Reply </p><div class="form reply-form-wrap pt-5" id="form'+ counter +'"><form name = "reply-form" action="#" method="post" class="" id="reply-form" onsubmit="hideform()"><div class="form-group"><input type="hidden" class="form-control" id="blog_id" name="blog_id" value="1"></div><div class="form-group"><input type="text" class="form-control" id="message" name="message" placeholder = "Join the disscusion" required></div><div class="form-group"><label for="name">Name *</label><input type="text" class="form-control" id="name" name="name" required></div><div class="form-group"><label for="email">Email *</label><input type="email" class="form-control" id="email" name="email" required></div><div class="form-group"><label for="website">Website</label><input type="url" class="form-control" id="website" name="website"></div><div class="form-group"><input type="submit" value="Post Reply" class="btn btn-primary btn-md text-white" name="submit" id="submit" required></div></form></div><p><button id="reply-button' + counter + '">Reply ' + counter + '</button></p> </div>').appendTo($(this).parent());
+            replyButton();
+        });
+        // add to counter
+        counter += 1;
+    }
+
+    // if comment button is clicked
+    $("#comment-button").click(function () {
+     		// $(this).hide();
+         $('#form'+(counter-1)).hide();
+        // append comment content
+        $('<div class="comment"><p> Test Comment </p><div class="form" id="form'+ counter +'"> <input type="text" value="" name="myinput" id="myinput"/> </div><button id="reply-button-' + counter + '">Reply ' + counter + '</button></div>').appendTo($(this).parent().parent());
+        // call reply button function
+        replyButton();
+
+    });
+
+
+});
+*/
+      </script>
   
 <script  type="text/javascript">
 // When the user clicks on div, open the popup
@@ -406,5 +484,206 @@ function funcSubscribe() {
     f.style.display = "none";
 </script>
 
+
+
+<script>
+    var x = document.getElementById("subCommentMessage");
+    x.style.display = "none";
+     
+    var f = document.getElementById("failCommentMessage");
+    f.style.display = "none";
+
+
+</script>
+<script>
+function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+
+$email = $("#comment-form [name='email']").val();
+
+$(document).ready(function(){
+$("#comment-form").on("submit",function(e){
+e.preventDefault();
+if(validateEmail($("#comment-form [name='email']").val()))
+{
+    var x = document.getElementById("subCommentMessage");
+    x.style.display = "inline-block";
+
+     var f = document.getElementById("failCommentMessage");
+    f.style.display = "none";
+
+    var sendData = $( this ).serialize();
+
+    $.ajax({
+        type: "POST",
+        url: "add_and_post_comment.php",
+        data: sendData,
+        success: function(data){
+            $("#comment-form").find("input[type=text], input[type=email], input[type=url], textarea").val("");
+            listComment();
+        }
+    });
+
+
+}
+else{
+    var f = document.getElementById("failCommentMessage");
+    f.style.display = "inline-block";
+
+     var x = document.getElementById("subCommentMessage");
+    x.style.display = "none";
+}
+});
+});
+
+
+
+function postReply(commentId) {
+		$('#comment_id').val(commentId);
+		$("#name").focus();
+	}
+
+function showComments(str) {
+    listComment();
+}
+
+$(document).ready(function() {
+		listComment();
+	});
+
+	function listComment() {
+		$
+				.post(
+						"comment-list.php",{ blog_id: "1"},
+						function(data) {
+							var data = JSON.parse(data);
+
+							var comments = "";
+							var replies = "";
+							var item = "";
+							var parent = -1;
+							var results = new Array();
+
+							var list = $("<ul class='comment-list'>");
+							var item = $("<li class='comment'>").html(comments);
+
+							for (var i = 0; (i < data.length); i++) {
+								var commentId = data[i]['comment_id'];
+								parent = data[i]['parent_comment_id'];
+
+								if (parent == "0") {
+									comments = 
+                                             "<div class='vcard bio' id="+ data[i]['comment_id']+">"
+                                            + "<img src='images/profile.jpg' alt='Image'>"
+                                            + "</div>"
+											+ "<div class='comment-body'>"
+                                            + "<h3>"
+											+ data[i]['name']
+                                            + "</h3>"
+											+ "<div class='meta'>"
+											+ data[i]['created_at']
+											+ "</div>"
+											+ "<p>"
+											+ data[i]['message']
+											+ "</p>"
+                                            + "<a href='#comment-section' class='reply' onClick='postReply("+data[i]['comment_id']+")'>Reply</a>"
+                                            + "</div>"
+                                            + "</li>";
+
+									var item = $("<li class='comment'>").html(comments);
+									list.append(item);
+									var reply_list = $("<ul class='children'>");
+									item.append(reply_list);
+									listReplies(commentId, data, reply_list);
+								}
+							}
+							$("#output").html(list);
+						});
+	}
+
+
+	function listReplies(commentId, data, list) {
+		for (var i = 0; (i < data.length); i++) {
+			if (commentId == data[i].parent_comment_id) {
+				var comments = "<div class='vcard bio'>"
+						+ " <img src='images/profile.jpg' alt='Image'>"
+                        + " </div>"
+                        + "<div class='comment-body'>"
+                        +"<h3>"+ data[i]['name']+"</h3>"
+						+ " <div class='meta'>"+ data[i]['created_at'] + "</div>"
+						+ "<p>" + data[i]['message'] +"</p>"
+                        + "<a href='#comment-section' class='reply' onClick='postReply("+data[i]['comment_id']+")' >Reply</a>"
+					    + "</div>";
+				var item = $("<li class='comment'>").html(comments);
+				var reply_list = $("<ul >");
+				list.append(item);
+				item.append(reply_list);
+				listReplies(data[i].comment_id, data, reply_list);
+			}
+		}
+	}
+
+</script>
+
+<!--
+<script>
+    
+     if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("add_comments").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","getcomments.php?blog_id="+"1",true);
+        xmlhttp.send();
+    
+</script>
+
+<script>
+    
+function showComments(str) {
+    
+    if (str == "") {
+       // document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else {
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("add_comments").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","getcomments.php?blog_id="+str,true);
+        xmlhttp.send();
+    }
+    
+}
+</script>
+-->
+
+
+
+
+
+
+
+
+
+
+ 
   </body>
 </html>

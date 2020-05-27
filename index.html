@@ -24,6 +24,40 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="style.css">
+      <style>
+
+/* Style the search field */
+form.findme input[type=text] {
+  padding: 3px; 
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+  
+}
+
+    /* Style the submit button */
+form.findme button {
+  float: left;
+  width: 20%;
+  padding: 3px;
+  background: #32dbc6;;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.findme button:hover {
+      color: grey; 
+      background:#1ec7b2;
+}
+form.findme button:focus {outline:0;}
+form.findme input[type=text]:focus {outline:0;}
+   </style>
+   
      <style>
         /* ------------------------------------------
 [Master Stylesheet]
@@ -74,11 +108,18 @@
               <li><a href="https://github.com/aisolutionsanddeeplearning" class="p-2"><span class="icon-github"></span></a></li>
               <li><a href="https://www.linkedin.com/in/yazmin-v-52548a183/" class="p-2"><span class="icon-linkedin"></span></a></li>
               <!--<li><form method="get" action="" > <input type="text" name="search" id="search" value="" /> <input type="submit" name="submit" value="Search" class="no-outline" /> </form></li>-->
-              <li><a href="#" class="p-2"><span class="icon-search"></span></a></li>
-              <li><div class="search-bar social-media">
-  <input class="input-text" type="text" name="eingabe"  id="search">
+             
+             
+              <!--<li><a href="#" class="p-2"><span class="icon-search"></span></a></li>--> 
+         <li><div class="search-bar social-media">
+                  <!--///YOUR FORM/INPUT BOX-->
+            <form class="findme" action="search.php" method="post">
+                <input class="input-text" type="text" name="findMe"  id="search">
+                  <button type="submit"><i class="icon-search"></i></button>
+            </form>
 </div></li>
                 <script>
+                    /*
                   var defaultText = "";
                    var searchBox = document.getElementById(""); //default text after load 
                    searchBox.value = defaultText; //on focus behaviour
@@ -86,6 +127,7 @@
                     this.value = ''; } } //on blur behaviour 
                     searchBox.onblur = function() { if (this.value == "") {//restore default text 
                     this.value = defaultText; } }
+                    */
                 </script>
             </ul>
           </div>
@@ -877,18 +919,18 @@
 
 
 
-            <form action="#" class="p-5 bg-white">
+            <form name="contact-form" method="post" action="add_and_send_message.php" class="p-5 bg-white" id="contact-form" >
 
               <h2 class="h4 text-black mb-5">Contact Form</h2>
 
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">
                   <label class="text-black" for="fname">First Name</label>
-                  <input type="text" id="fname" class="form-control">
+                  <input type="text" name="first_name" id="first_name" class="form-control" required>
                 </div>
                 <div class="col-md-6">
                   <label class="text-black" for="lname">Last Name</label>
-                  <input type="text" id="lname" class="form-control">
+                  <input type="text" name="last_name" id="last_name" class="form-control" required>
                 </div>
               </div>
 
@@ -896,7 +938,7 @@
 
                 <div class="col-md-12">
                   <label class="text-black" for="email">Email</label>
-                  <input type="email" id="email" class="form-control">
+                  <input type="email" name="email" id="email" class="form-control" required>
                 </div>
               </div>
 
@@ -904,23 +946,26 @@
 
                 <div class="col-md-12">
                   <label class="text-black" for="subject">Subject</label>
-                  <input type="text" id="subject" class="form-control">
+                  <input type="text" name="subject" id="subject" class="form-control" required>
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="text-black" for="message">Message</label>
-                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..."></textarea>
+                  <textarea name="message" name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..." required></textarea>
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <input type="submit" value="Send Message" class="btn btn-primary btn-md text-white">
+                  <button type="submit" value="Send Message" name="submit" id="submit" class="btn btn-primary btn-md text-white">Send Message</button>
                 </div>
               </div>
 
+            <span class="text-primary" id="subContactMessage">Your message has been successfully sent.<br><span class="text-black"> We will contact you very soon!</span></span>
+            <span class="text-red" id="failContactMessage">Please enter a valid email address</span>
+             
 
             </form>
           </div>
@@ -1010,12 +1055,12 @@ function initMap() {
           </div>
           <div class="col-md-3">
             <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
-            <form  method="post" action="addemail.php"> <!--action="addemail.php" onsubmit="return false"-->
+            <form  name="email-form" method="post" action="addemail.php" id="email-form"> <!--action="addemail.php" onsubmit="return false"-->
               <div class="input-group mb-3">
                 <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Name" aria-label="Name" aria-describedby="button-addon2" name="name" id="name" required>
-                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Email" aria-label="Email" aria-describedby="button-addon2" name="email" id ="email" required>
+                <input type="email" class="form-control border-secondary text-white bg-transparent" placeholder="Email" aria-label="Email" aria-describedby="button-addon2" name="email" id ="email" required>
                 <div class="input-group-append "  >
-                  <button class="btn btn-primary text-white" onclick="funcSubscribe()" type="submit" id="button-addon2" value="Subscribe" name="subscribe">Send </button>
+                  <button class="btn btn-primary text-white" onSubmit="funcSubscribe()" type="submit" id="button-addon2" value="Subscribe" name="subscribe">Send </button>
                    
                 </div>
                 
@@ -1095,8 +1140,8 @@ function initMap() {
 function funcSubscribe() {
  //var message = "<?PHP echo $message ?>"; 
  //   if(message == "success"){
-         var x = document.getElementById("subMessage");
-             x.style.display = "inline-block";
+        // var x = document.getElementById("subMessage");
+          //   x.style.display = "inline-block";
 //} else {
   //  var f = document.getElementById("failMessage");
     //    f.style.display = "inline-block";
@@ -1109,7 +1154,103 @@ function funcSubscribe() {
      
     var f = document.getElementById("failMessage");
     f.style.display = "none";
+
+    var cx = document.getElementById("subContactMessage");
+    cx.style.display = "none";
+     
+    var cf = document.getElementById("failContactMessage");
+    cf.style.display = "none";
 </script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script>
+function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+
+$email = $("#email-form [name='email']").val();
+
+$(document).ready(function(){
+$("#email-form").on("submit",function(e){
+e.preventDefault();
+if(validateEmail($("#email-form [name='email']").val()))
+{
+    var x = document.getElementById("subMessage");
+    x.style.display = "inline-block";
+
+     var f = document.getElementById("failMessage");
+    f.style.display = "none";
+
+    var sendData = $( this ).serialize();
+
+    $.ajax({
+        type: "POST",
+        url: "addemail.php",
+        data: sendData,
+        success: function(data){
+            $("#contact-form").find("input[type=text], input[type=email]").val("");
+        }
+    });
+}
+else{
+    var f = document.getElementById("failMessage");
+    f.style.display = "inline-block";
+
+     var x = document.getElementById("subMessage");
+    x.style.display = "none";
+}
+});
+});
+
+</script>
+
+<script>
+function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+
+$email = $("#contact-form [name='email']").val();
+
+$(document).ready(function(){
+$("#contact-form").on("submit",function(e){
+e.preventDefault();
+if(validateEmail($("#contact-form [name='email']").val()))
+{
+    var x = document.getElementById("subContactMessage");
+    x.style.display = "inline-block";
+
+     var f = document.getElementById("failContactMessage");
+    f.style.display = "none";
+
+    var sendData = $( this ).serialize();
+
+    $.ajax({
+        type: "POST",
+        url: "add_and_send_message.php",
+        data: sendData,
+        success: function(data){
+            $("#contact-form").find("input[type=text], input[type=email], textarea").val("");
+        }
+    });
+
+
+}
+else{
+    var f = document.getElementById("failContactMessage");
+    f.style.display = "inline-block";
+
+     var x = document.getElementById("subContactMessage");
+    x.style.display = "none";
+}
+});
+});
+
+</script>
+
+
   </body>
 </html>
 <!--

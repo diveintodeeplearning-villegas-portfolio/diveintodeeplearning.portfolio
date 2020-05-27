@@ -31,14 +31,66 @@
        }
 
        .bg-dark2{
-    background-color: #512E5F  ; /*#512E5F*/
-}
+            background-color: #512E5F  ; /*#512E5F*/
+        }
     </style>
 
+    <!-- primary color #32dbc6-->
+    <link rel="shortcut icon" type="image/jpg" href="images/ico.jpg">
 
-    <style>
-        
-.alime-btn {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <style>
+
+/* Style the search field */
+form.findme input[type=text] {
+  padding: 3px; 
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+  
+}
+
+    /* Style the submit button */
+form.findme button {
+  float: left;
+  width: 20%;
+  padding: 3px;
+  background: #32dbc6;;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.findme button:hover {
+      color: grey; 
+      background:#1ec7b2; 
+}
+
+form.findme button:focus {outline:0;}
+form.findme input[type=text]:focus {outline:0;}
+   </style>
+   
+
+<style>
+.filterDiv {
+  display: none;
+}
+
+.show {
+  display: inline-block;
+}
+
+.alime-portfolio {
+ // margin-top: 20px;
+ // overflow: hidden;
+}
+
+/* Style the buttons */
+.alime-btn2 {
   position: relative;
   z-index: 1;
   min-width: 160px;
@@ -54,23 +106,28 @@
   border-radius: 60px;
   -webkit-transition-duration: 500ms;
   -o-transition-duration: 500ms;
-  transition-duration: 500ms; }
+  transition-duration: 500ms; 
+  }
 
-.alime-btn:hover,.alime-btn:focus {
+/*.alime-btn2:hover {
+  font-weight: 500;
+    color: #32dbc6; 
+}*/
+
+.alime-btn2:hover,.alime-btn2:focus {
     font-weight: 500;
     color: #32dbc6; 
-    /*text-decoration: underline;*/
     }
-.alime-btn:focus {outline:0;}
 
-
-    </style>
-    <!-- primary color #32dbc6-->
-    <link rel="shortcut icon" type="image/jpg" href="images/ico.jpg">
-
+/*.alime-btn2.active {
+  font-weight: 500;
+    color: #32dbc6; 
+}*/
+.alime-btn2:focus {outline:0;}
+</style>
 
   </head>
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" onload="myloadfunc()">
 
   <div class="site-wrap">
 
@@ -95,19 +152,15 @@
             <ul class="social-media">
               <li><a href="https://github.com/aisolutionsanddeeplearning" class="p-2"><span class="icon-github"></span></a></li>
               <li><a href="https://www.linkedin.com/in/yazmin-v-52548a183/" class="p-2"><span class="icon-linkedin"></span></a></li>
-               <li><a href="#" class="p-2"><span class="icon-search"></span></a></li>
-              <li><div class="search-bar social-media">
-  <input class="input-text" type="text" name="eingabe"  id="search">
+               <!--<li><a href="#" class="p-2"><span class="icon-search"></span></a></li>-->
+ <li><div class="search-bar social-media">
+                  <!--///YOUR FORM/INPUT BOX-->
+            <form class="findme" action="search.php" method="post">
+                <input class="input-text" type="text" name="findMe"  id="search">
+                   <button type="submit"><i class="icon-search"></i></button>
+            </form>
 </div></li>
-                <script>
-                  var defaultText = "";
-                   var searchBox = document.getElementById(""); //default text after load 
-                   searchBox.value = defaultText; //on focus behaviour
-                    searchBox.onfocus = function() { if (this.value == defaultText) {//clear text field 
-                    this.value = ''; } } //on blur behaviour 
-                    searchBox.onblur = function() { if (this.value == "") {//restore default text 
-                    this.value = defaultText; } }
-                </script>
+                
             </ul>
           </div>
         </div>
@@ -143,7 +196,7 @@
                 <li class="has-children">
                     <a href="#blog-section" class="nav-link">Blog</a>
                     <ul  class="dropdown">
-                        <li><a href="index.html#latest-blog-section">Latest Blog</a></li>
+                        <li><a href="index.html#blog-section">Latest Blog</a></li>
                         <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </li>
@@ -179,27 +232,119 @@
     </div>
 
 
-    <!-- Gallery Area Start -->
+    <!-- Gallery Area Start-->           
+<section  class="site-section bg-light" id="blog-section">
+   < <div class="alime-portfolio-area section-padding-80 clearfix">
+        <div class="container-fluid" > 
+        
+            <div class="row">
+                <div class="col-12">         
+                    <div class="alime-projects-menu wow fadeInUp" data-wow-delay="100ms"> 
+                        <div class="portfolio-menu text-center" id="myBtnContainer">
+                            
+  <button class="alime-btn2 active" id="all" onclick="filterSelection('all')"> Show all</button>
+  <button class="alime-btn2 "  id="cnn" onclick="filterSelection('cnn')"> CNN</button>
+  <button class="alime-btn2"  id="nlp" onclick="filterSelection('nlp')"> NLP</button>
+  <button class="alime-btn2"  id="gan" onclick="filterSelection('gan')"> GAN</button>
+  <button class="alime-btn2"  id="dcgan" onclick="filterSelection('dcgan')"> DCGAN</button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            
+<div class="row"> <!--row alime-portfolio-->  
+                 
+                <!-- Single Gallery Item -->
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4 single_gallery_item mb-30 wow fadeInUp filterDiv gan" data-wow-delay="100ms"> 
+                  <div class="h-entry single-portfolio-content">
+                   <a href="blog1.html"><img src="images/img_11.jpg" alt="Image" class="img-fluid"></a>
+                   <h2 class="font-size-regular"><a href="blog1.html">GANs to make 8-bit Pixel art</a></h2>
+                    <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 8, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
+                   <p>Generative models are deep learning models that are able to create data such as photos, movies or music by itself. GANs are used to make 8-bit Pixel art like paintings, images, etc. </p>
+                    <p><a href="blog1.html">Continue Reading...</a></p>
+                  </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4 single_gallery_item mb-30 wow fadeInUp filterDiv dcgan" data-wow-delay="100ms">
+                 <div class="h-entry single-portfolio-content">
+                  <a href="blog2.html"><img src="images/img_55.jpg" alt="Image" class="img-fluid"></a>
+                  <h2 class="font-size-regular"><a href="blog2.html">How DCGANs work</a></h2>
+                  <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 8, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
+                  <p>To build a DCGAN, you create two deep neural networks that will fight against each other. So, these deep neural networks will fight endlessly to become stronger. </p>
+                  <p><a href="blog2.html">Continue Reading...</a></p>
+                 </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4 single_gallery_item mb-30 wow fadeInUp filterDiv dcgan" data-wow-delay="100ms">
+                  <div class="h-entry single-portfolio-content">
+                    <a href="blog3.html"><img src="images/img_66.jpg" alt="Image" class="img-fluid"></a>
+                    <h2 class="font-size-regular"><a href="blog3.html">DCGAN for Video games</a></h2>
+                    <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 8, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
+                    <p>DCGAN can be used to generate new artwork for old video games. We are going to build a DCGAN to generate screenshots of imaginary video games like Nintendo.</p>
+                   <p><a href="blog3.html">Continue Reading...</a></p>
+                  </div>
+                </div>
+
+            
+                 <!-- Single Gallery Item -->
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4 single_gallery_item mb-30 wow fadeInUp filterDiv cnn" data-wow-delay="100ms">
+                  <div class="h-entry single-portfolio-content">
+                    <a href="blog4.html"><img src="images/img_77.jpg" alt="Image" class="img-fluid"></a>
+                    <h2 class="font-size-regular"><a href="blog4.html">12 Amazing Deep Learning breakthroughs</a></h2>
+                    <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 8, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
+                    <p>The last year many AI engineers aimed to create a real artificial intelligence system. A real machine that thinks is what every AI geek wants. Machine learning is the most successful application of AI.</p>
+                   <p><a href="blog4.html">Continue Reading...</a></p>
+                  </div>
+                </div>
+
+              <!-- Single Gallery Item -->
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4 single_gallery_item mb-30 wow fadeInUp filterDiv cnn" data-wow-delay="100ms">
+                  <div class="h-entry single-portfolio-content">
+                    <a href="blog5.html"><img src="images/img_66.jpg" alt="Image" class="img-fluid"></a>
+                    <h2 class="font-size-regular"><a href="blog5.html">Deep learning and CNNs</a></h2>
+                    <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 18, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
+                    <p>In this article, you will learn how to create your convolutional neural network (ConvNet) for recognizing objects in images. In fact, Google Photos uses deep learning to search your photos.</p>
+                   <p><a href="blog5.html">Continue Reading...</a></p>
+                  </div>
+                </div>
+
+              <!-- Single Gallery Item -->
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4 single_gallery_item mb-30 wow fadeInUp filterDiv nlp" data-wow-delay="100ms">
+                  <div class="h-entry single-portfolio-content">
+                    <a href="blog6.html"><img src="images/img_111.jpg" alt="Image" class="img-fluid"></a>
+                    <h2 class="font-size-regular"><a href="blog6.html">Emotion AI</a></h2>
+                    <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 18, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
+                    <p>Nowadays, Artificial Intelligence can be used for making our electronic devices more personal. AI can be used for many things such as simplify the daily task and increase productivity.</p>
+                   <p><a href="blog6.html">Continue Reading...</a></p>
+                  </div>
+                </div>
+
+            </div>
+        
+
+    <!-- Gallery Area Start 
 <section  class="site-section bg-light" id="blog-section">
     <div class="alime-portfolio-area section-padding-80 clearfix">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <!-- Projects Menu -->
+                    
                     <div class="alime-projects-menu wow fadeInUp" data-wow-delay="100ms">
-                        <div class="portfolio-menu text-center">
-                            <button class="alime-btn  active" data-filter="*">All</button>
-                            <button class="alime-btn  " data-filter=".cnn">CNN</button>
-                            <button class="alime-btn  " data-filter=".nlp">NLP</button>
-                            <button class="alime-btn  " data-filter=".gan">GAN</button>
-                            <button class="alime-btn  " data-filter=".dcgan">DCGAN</button>
+                        <div class="portfolio-menu text-center" id="portfolio-menu">
+                            <button class="alime-btn active" data-filter="*" id="bt-all">All</button>
+                            <button class="alime-btn  " data-filter=".cnn" id="bt-cnn">CNN</button>
+                            <button class="alime-btn  " data-filter=".nlp" id="bt-nlp">NLP</button>
+                            <button class="alime-btn  " data-filter=".gan" id="bt-gan">GAN</button>
+                            <button class="alime-btn  " data-filter=".dcgan" id="bt-dcgan">DCGAN</button>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="row alime-portfolio">
-                <!-- Single Gallery Item -->
+              
                 <div class="col-md-6 col-lg-4 mb-4 mb-lg-4 single_gallery_item gan mb-30 wow fadeInUp" data-wow-delay="100ms">
                     
                   <div class="h-entry single-portfolio-content">
@@ -211,7 +356,7 @@
                   </div>
                 </div>
 
-                <!-- Single Gallery Item -->
+                
                 <div class="col-md-6 col-lg-4 mb-4 mb-lg-4 single_gallery_item dcgan mb-30 wow fadeInUp" data-wow-delay="100ms">
                  <div class="h-entry single-portfolio-content">
                   <a href="blog2.html"><img src="images/img_55.jpg" alt="Image" class="img-fluid"></a>
@@ -222,7 +367,7 @@
                  </div>
                 </div>
 
-                <!-- Single Gallery Item -->
+                
                 <div class="col-md-6 col-lg-4 mb-4 mb-lg-4 single_gallery_item dcgan mb-30 wow fadeInUp" data-wow-delay="100ms">
                   <div class="h-entry single-portfolio-content">
                     <a href="blog3.html"><img src="images/img_66.jpg" alt="Image" class="img-fluid"></a>
@@ -234,9 +379,6 @@
                 </div>
 
             
-            
-                 <!-- Single Gallery Item -->
-<!-- Single Gallery Item -->
                 <div class="col-md-6 col-lg-4 mb-4 mb-lg-4 single_gallery_item cnn mb-30 wow fadeInUp" data-wow-delay="100ms">
                   <div class="h-entry single-portfolio-content">
                     <a href="blog4.html"><img src="images/img_77.jpg" alt="Image" class="img-fluid"></a>
@@ -247,8 +389,7 @@
                   </div>
                 </div>
 
-                <!-- Single Gallery Item -->
-              <!-- Single Gallery Item -->
+
                 <div class="col-md-6 col-lg-4 mb-4 mb-lg-4 single_gallery_item cnn mb-30 wow fadeInUp" data-wow-delay="100ms">
                   <div class="h-entry single-portfolio-content">
                     <a href="blog5.html"><img src="images/img_66.jpg" alt="Image" class="img-fluid"></a>
@@ -259,8 +400,7 @@
                   </div>
                 </div>
 
-                <!-- Single Gallery Item -->
-              <!-- Single Gallery Item -->
+               
                 <div class="col-md-6 col-lg-4 mb-4 mb-lg-4 single_gallery_item nlp mb-30 wow fadeInUp" data-wow-delay="100ms">
                   <div class="h-entry single-portfolio-content">
                     <a href="blog6.html"><img src="images/img_111.jpg" alt="Image" class="img-fluid"></a>
@@ -270,16 +410,16 @@
                    <p><a href="blog6.html">Continue Reading...</a></p>
                   </div>
                 </div>
-
-                
             </div>
 
+-->
             <div class="row">
                 <div class="col-12 text-center"><a data-fancybox data-ratio="2" href="#blog-section" class="btn btn-primary btn-md ">View More</a></div>
                 </div>
+        
+        
             </div>
-        </div>
-    
+        </div> 
 </section>
     <!-- Gallery Area End -->
 
@@ -326,7 +466,7 @@
 	                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Name" aria-label="Name" aria-describedby="button-addon2" name="name" id="name" required>
 	                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Email" aria-label="Email" aria-describedby="button-addon2" name="email" id ="email" required>
 	                <div class="input-group-append "  >
-	                  <button class="btn btn-primary text-white" onclick="funcSubscribe()" type="submit" id="button-addon2" value="Subscribe" name="subscribe">Send </button>
+	                  <button class="btn btn-primary text-white" onSubmit="funcSubscribe()" type="submit" id="button-addon2" value="Subscribe" name="subscribe">Send </button>
 	                   
 	                </div>
 	                
@@ -357,6 +497,73 @@
 
   </div> <!-- .site-wrap -->
 
+
+
+<script>
+    
+    $.urlParam = function(name, url) {
+        if (!url) {
+            url = window.location.href;
+        }
+        var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(url);
+        if (!results) { 
+            return "all";
+        }
+    return results[1] || "all"; }
+
+var filter = $.urlParam('filter');
+
+filterSelection(filter);
+
+// Add active class to the filter button (highlight it)
+function myloadfunc(){
+    var btnContainer = document.getElementById("myBtnContainer");
+    var btns = btnContainer.getElementsByClassName("alime-btn2");
+    var btnFilter = document.getElementById(filter);
+    for (var i = 0; i < btns.length; i++) {
+       var current = document.getElementsByClassName("active");
+       current[0].className = current[0].className.replace(" active", " ");
+       btnFilter.className += " active";
+       document.getElementById(filter).focus();
+    } 
+}
+
+
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("filterDiv");
+  if (c == "all" || c== 'undefined') c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+
+
+</script>
+ 
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
@@ -419,6 +626,8 @@ function funcSubscribe() {
     var f = document.getElementById("failMessage");
     f.style.display = "none";
 </script>
+
+
 
   </body>
 </html>
