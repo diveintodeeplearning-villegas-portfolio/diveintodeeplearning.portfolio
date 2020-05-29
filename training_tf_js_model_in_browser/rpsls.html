@@ -4,7 +4,28 @@
 <script src="webcam.js"></script>
 <script src="rps-dataset.js"></script>
 </head>
+
 <body>
+	<h1>Rock, Paper, Scissors, Lizard, Spock.</h1>
+
+<p>In this web application, you are able to train your model in the browser using your webcam. You will train your model in exactly the same way as in the Rock, Paper, Scissors example but now you will include the Lizard and Spock hand gestures.</p>
+
+<p>Below are a few tips that can help you get started.</p>
+
+<il>
+	<li>Collecting between 50 to100 images for each hand gesture should be good enough for most models. However, feel free to experiment and try to train your model with less or more images.</li>
+
+	<li>Wait until Training has Finished before you Download the Model. To make sure training has completed, open the Developer Tools and look at the Console output. When the browser alerts that "Training is Done!" click Ok. After you click Ok, you will see the value of the LOSS being printed in Console. Once the LOSS values stop being printed, you can go ahead and click the "Download Model" button to download the model and its weights.</li>
+
+	<li>Your model will be graded based on how it performs on our test set. Below are a couple of images from our testing set:</li>
+
+	<img src="images/rock-paper-scissors-lizard-spock.jpg" alt="rock, paper, scissors, lizard, spock game">
+
+
+	<li> To train your model, don't stand too far away from the webcam and it's much better if you do not wear sleeves. Below are some sample training images.</li>
+</il>
+
+
 	<div>
 		<div>
 			<video autoplay playsinline muted id="wc" width="224" height="224"></video>
