@@ -39,9 +39,13 @@
           margin: auto;
           border: 3px solid #32dbc6;
       }
-        .crop img {
-        margin: -75px 0 0 -100px;
+      .crop img {
+           margin: -75px 0 0 -100px;
     }
+      .responsive {
+           width: 100%;
+           height: auto;
+     }
     </style>
      <style>
         /* ------------------------------------------
@@ -135,7 +139,7 @@ form.findme2 input[type=text]:focus {outline:0;}
 
     </style>
 
-    <link rel="shortcut icon" type="image/jpg" href="images/ico.jpg">
+    <link rel="shortcut icon" type="image/jpg" href="images/ico.jpg" >
    
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -285,13 +289,13 @@ form.findme2 input[type=text]:focus {outline:0;}
 <ul class="list-unstyled ul-check primary">
               
   <li>In this example, the predicted article of clothing is a Bag.</li>
-   <img src="images/bag-classigication-tensorflow.jpg" alt="bag classigication using tensorflow" class="center">
+   <img src="images/bag-classigication-tensorflow.jpg" alt="bag classigication using tensorflow" class="center responsive">
 
   <li> In this example, the predicted article of clothing is an Ankle Boot.</li>
-   <img src="images/ankle-boot-classigication-tensorflow.jpg" alt="ankle boot classigication using tensorflow" class="center">
+   <img src="images/ankle-boot-classigication-tensorflow.jpg" alt="ankle boot classigication using tensorflow" class="center responsive">
 
   <li> In this example, the predicted article of clothing is a Sandal.</li>
-   <img src="images/sandal-classigication-tensorflow.jpg" alt="sandal classigication using tensorflow" class="center crop">
+   <img src="images/sandal-classigication-tensorflow.jpg" alt="sandal classigication using tensorflow" class="center crop responsive">
 
 
 </ul>
