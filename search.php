@@ -224,17 +224,17 @@ form.findme2 input[type=text]:focus {outline:0;}
     </div>
 
 
-    <div class="border-bottom top-bar py-2 bg-dark2" id="home-section"> <!--bg-dark-->
+    <div class="border-bottom top-bar py-2 bg-dark" id="home-section"> <!--bg-dark-->
       <div class="container">
         <div class="row">
           <div class="col-md-6">
             <p class="mb-0">
-              <span><strong class="text-white">Email:</strong> <a href="#">info.aisolutionsmx@gmail.com</a></span>
+              <span><strong class="text-white">Email:</strong> <a href="#">info@diveintodeeplearning.com</a></span>
             </p>
           </div>
           <div class="col-md-6 " ><!--class="class="social-media"-->
             <ul class="social-media">
-              <li><a href="https://github.com/aisolutionsanddeeplearning" class="p-2"><span class="icon-github"></span></a></li>
+              <li><a href="https://github.com/diveintodeeplearning-villegas-portfolio" class="p-2"><span class="icon-github"></span></a></li>
               <li><a href="https://www.linkedin.com/in/yazmin-v-52548a183/" class="p-2"><span class="icon-linkedin"></span></a></li>
               <!--<li><form method="get" action="" > <input type="text" name="search" id="search" value="" /> <input type="submit" name="submit" value="Search" class="no-outline" /> </form></li>-->
               <!--<li><a href="#" class="p-2"><span class="icon-search"></span></a></li>-->
@@ -377,14 +377,14 @@ form.findme2 input[type=text]:focus {outline:0;}
 
 
    <section  id="newsletter-section">
-    <footer class="site-footer bg-dark2">
+    <footer class="site-footer bg-dark">
       <div class="container">
         <div class="row">
           <div class="col-md-9">
             <div class="row">
               <div class="col-md-5">
                 <h2 class="footer-heading mb-4">About Us</h2>
-                <p>AI Solutions is a deep learning startup that was created by Yazmin Villegas in 2020.</p>
+                <p>Dive Into Deep Learning team can help you with your AI projects.</p>
               </div>
               <div class="col-md-3 ml-auto">
                 <h2 class="footer-heading mb-4">Features</h2>
@@ -427,7 +427,7 @@ form.findme2 input[type=text]:focus {outline:0;}
             <div class="border-top pt-5">
             <p>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            AI Solutions <script>document.write(new Date().getFullYear());</script>| AI for everybody with <i class="icon-heart text-danger" aria-hidden="true"></i> 
+            Dive Into Deep Learning<script>document.write(new Date().getFullYear());</script><!--| AI for everybody with <i class="icon-heart text-danger" aria-hidden="true"></i> -->
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
             </div>
