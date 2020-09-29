@@ -1,0 +1,28 @@
+ <p class="lead">
+            To build a DCGAN, you create two deep neural networks that will fight against each other. So, these deep neural networks will fight endlessly to become stronger. </p>
+
+            <p>For example, one deep neural network is like a new police officer that is trained to spot counterfeit money. So, its job is to look at an image and tell us if the picture contains real money. 
+</p>
+
+            <blockquote><p>In this case, we are looking for objects in images, so we must use ConvNets for this job. A convolutional neural network (or ConvNet) is an artificial neural network that is fed with images, and it processes it through several layers in order to recognize increasingly complex features in the image and then it outputs a single value that is used to know if the image is of real money.</p></blockquote>
+
+            <p>The first neural network is called discriminator, which receives the image and the discriminator network must tell us if the picture contains money.</p>
+
+            <p>The second neural network acts like a brand new counterfeiter that is learning how to create fake money. For this second neural network, it is like the discriminator network, but its layers are reversed so that everything runs backward. So, this neural network takes a list of values and has as output an image. This neural network is called Generator network.</p>
+
+            <p>So, we have two neural networks called discriminator and generator. The discriminator acts like the police officer looking for fake money and the generator acts like a counterfeiter that’s printing fake money. Indeed, these two neural networks must fight each other to become stronger. This means that the generative model will generate better images. </p>
+
+            <blockquote><p>When it is the first iteration (or epoch), the generator network will create fake forgeries that barely resemble money because it doesn’t know how money looks like. Once the generator makes the first (terrible) fake dollar, it will be the input of the discriminator network. </p></blockquote>
+
+            <p>When it is the first iteration (or epoch), the discriminator is equally terrible at its job of recognizing money, so it won’t know the difference. Once the generator thinks the fake dollar is real, we must tell the Discriminator that the generated dollar is fake. Then, we show it a real dollar and ask it how it looks different from the fake dollar. Indeed, the discriminator looks for a new detail to help it separate the real one from the fake one.  So, the discriminator can find details such as faces or numbers in the money.</p>
+            
+            <p>In the second “battle”, we tell the generator network that its fake money is detected as fake so it needs to get better at its game and generate better fake money. So, we tell it that the Discriminator is looking for details such as faces. Indeed, it must start to generate money with faces. So, the generator network receives a list of numbers and the generator has as output fake bills with details such as faces. </p>
+
+            <p> The battles between the generator and the discriminator network continue until both networks are experts.  Eventually, the generator is producing near-perfect counterfeits and the Discriminator became the best detective looking for the slightest mistakes.</p>
+
+            <p>In the end, both networks are very well trained so that you would be impressed by the fake images. </p>
+
+
+            <div class="pt-5">
+              <p>Categories:  <a href="#">Deep Learning</a>, <a href="#">Machine Learning</a>  Tags: <a href="#">#DCGANs</a>, <a href="#">#DL</a></p>
+            </div>

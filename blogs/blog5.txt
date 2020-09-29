@@ -1,0 +1,73 @@
+ <p class="lead">
+            In this article, you will learn how to create your convolutional neural network (ConvNet) for recognizing objects in images. In fact, Google Photos uses deep learning to search your photos based on what is in the picture. </p>
+
+            <p>Convolutional neural networks are able to recognize objects such as dogs, cats, boats, cars and so much more. In fact, the algorithm for doing this is pretty simple. </p>
+
+            <p>Deep learning uses the artificial neural network algorithm (ANN), which is an algorithm that imitates the human brain. The human brain has neurons that are connected to each other. Indeed, ANN algorithm has layers of artificial neurons, so each layer has one or more artificial neurons that are simple math function. The algorithm receives input data such as images and text. So, the data goes through the layers with artificial neurons. This means that the input data is transformed in each layer using these math functions. The last layer generates the output such as predictions, output images, and output text. Basically, the input data is transformed using math function to get closer to what we want or to make classify the data.</p>
+
+            <blockquote><p>For example, ConvNets can be used to recognize any objects such as handwritten digit numbers.  In fact, the more data, the better this algorithm works. For this, you can use the MNIST dataset of handwritten numbers. The MNIST dataset has 60,000 images of handwritten digits (18x18 images). </p></blockquote>
+
+            <p>Now, the ConvNet has 10 different inputs, which are the digits from 0-9. So, each digit has its own dataset. So, the datasets have images these handwritten digits (from 0-9). An image is a matrix of numbers; each number represents the color of a pixel. So, when we say an image is the input of the ConvNet, we are saying that we are working with a matrix of numbers. In this case, the images are 18x18 pixel, which means that these images are matrixes of 18x18. </p>
+
+            <p>ConvNet is fed with the input data, and the output of this neural network is a vector (or Tensor) that has the probability of each digit. So, if the input is an image of the number ‘8’, the ConvNet would generate a vector like logits = [0.1 0.2 0.1 0.1 0.2 0.1 0.1 0.2 0.95 0.1], which is the probability of each digit (0-9). So, the max probability, which is 0.95 (logits.max =0.95), is the predicted digit (which is 8). </p>
+
+            <p class="lead">In fact, a computer can handle a neural network with hundreds of layers. But some neural networks need GPUs to handle more complex neural networks. In fact, it takes some hours (using GPUs) to train a neural network in order to achieve a high accuracy.</p>
+
+            <h2>Searching with Sliding window</h2>
+            <p>In deep learning, it is the sliding window for searching. You remember that an image is a matrix of numbers. Then, a part of this matrix is taken, which is called window. So, we take as many windows as possible in order to check the same image over and over looking for objects of different sizes.  </p>
+
+            <h2>More data and a Deep neural network</h2>
+            <blockquote><p>We can train our network using the images in all different positions and sizes all around the image. In fact, we don’t need more image than the original dataset. We can just generate new images in all kinds of different positions in the image. So, using this technique, it is possible to have more data. In order to achieve better results, we must make our neural network bigger. This means that our neural network will be able to learn more complicated patterns. </p></blockquote>
+
+            <p class="lead">A deep neural network has more layers than a traditional neural network. Using GPUs, it is possible to have a deep neural network with many layers, which decrease the time for training.</p>
+
+            <p>In order to train our deep neural network to recognize digital numbers in different positions, we must use the convolution method. A human can recognize objects in different positions and recognize objects above other objects. So, a computer must learn how to do the same. For this, we need to give our neural network understanding of translation invariance, which means that it can identify a digit in any position or orientation. </p>
+            
+            <p>For this, it is used the Convolution method, which is inspired by both computer science and biology. The convolution idea consists on using chunks of the image (that overlaps between them) to feed a neural network, save the results from each tile into a new array, downsampling, and finally make a prediction.  </p>
+
+            <h2>Step1: Overlapping chunks of images</h2>
+            <p> This step is similar to the sliding window search. So, a sliding window is passed over the image and save each result (a chunk of an image) that must overlap with the other chunks.</p>
+
+            <h2>Step 2: Feed each chunk of an image into a neural network.</h2>
+            <p> In this step, each chunk of an image is used to feed a neural network, and we are going to keep the same weights for every chunk in the image. So, every chunk of image uses the same weights. In the case it finds a pattern, the chunk of an image is marked as interesting.   </p>
+
+            <h2> Step 3: save the results from each chunk into a new array</h2>
+             <blockquote><p> In order to don't lose track of the arrangement of the original chunks, we save the results from processing each chunk of an image into a grid in the same arrangement as the original image.</p></blockquote>
+             <p> In order words, we used the original image to have overlapped chunks of images in order to feed the neural network to generate an array that records the interesting parts of our original image. </p>
+
+             <h2>Step 4: Downsampling </h2>
+             <p>  Now, we are going to reduce the size of the array of the interesting chunks of the image. So, we are going to downsample it using max pooling algorithm. Max pooling is a very simple function to grab the maximum of each chunk of an image. So, we have a chunk of an image, which is a little matrix with the color values of each pixel, and we are going to grab the maximum value of each chunk.</p>
+
+
+
+             <h2> Adding more layers to our neural network</h2>
+             <p> The neural network has many different layers such as convolutional, max pooling, and fully connected layers. So, a neural network uses convolution and max-pooling many times, and finally the use a fully connected layer. This is called convolutional neural network or (ConvNet). </p>
+             <p> A ConvNet with more layer is able to find more complicated features. For example, The first convolutional layer might learn to recognize sharp edges, the second convolutional layer might recognize beaks using its knowledge of sharp edges, the third convolutional layer might recognize entire birds using the patterns that it learned.  
+</p>
+
+             <h2>Building the ConvNet </h2>
+             <p> In order to find the best ConvNet, you must try many different ConvNet architectures. Probably, you must train hundreds of ConvNet before you find the optimal architecture and parameters. 
+</p>
+
+             <h2> Building a Bird Classifier </h2>
+             <p> Now, we are going to build a bird classifier. For this, we are going to use the CIFAR10 dataset that has more than 6,000 images of birds and 52,000 images of things that are not birds. You can also use the Caltech-UCSD Birds-200-2011 dataset that has like 12,000 bird images. 
+</p>
+            <p>In machine learning, it is important to have better data than better algorithms. </p>
+            <p>In this tutorial, we are going to use TFLearn, which is a wrapper around Google’s TensorFlow library. So, you can use TFLearn to build and train your deep learning model. </p>
+            <p> You can use GPUs for training your model in less time. If you use a GPU, it could take less than an hour. In the other case, it might take more than 4 hours. </p>
+            <p> So, the ConvNet is trained in order to increase the accuracy. For example, in the first iteration (epoch), the model has 62% accuracy. After 10 iterations (epochs), the model has like 90% accuracy. After more than 50 iterations (epochs), it has like 95.5% accuracy.  </p>
+
+             <h2>Testing our model </h2>
+             <p>Now that we trained our neural network, we must use the next commands to predict if an image is a bird or not:
+ </p>
+            <p>After 50 iterations (epochs), the trained model might achieve 95% accuracy. But, as any model, you might have true positives, true negatives, false positives and false positives.</p>
+            <p>A true positive refers to the images that are correctly classified as birds. True negative refers to the images that are wrongly classified as birds. False positive refers to the images that were wrongly classified as birds. False negative refers to the images that were wrongly classified as not birds. 
+</p>
+            <p>For example, if you use the validation set of 15,000 and a model with 95% accuracy. You might have around 162 false positives, 550 false negatives, 5,450 true positives and 8,838 true negatives. 
+</p>
+            <p>For this, we use Precision and Recall metrics to calculate the overall accuracy. Precision refers to the predicted "birds", and how often it was really a bird. Additionally, precisions are the true positives plus all positive guesses. The recall is the percentage of the actual birds we find. The recall is the true positives divided by the total birds in datasets.</p>
+            <p>In this example, the precision function tells us that 97.11% of the time we guessed “Bird” right. But, the recall function tells us that we found only 90.83% of the actual birds in the dataset. </p>
+
+            <div class="pt-5">
+              <p>Categories:  <a href="#">Deep Learning</a>, <a href="#">Machine Learning</a>  Tags: <a href="#">#ML</a>, <a href="#">#DL</a></p>
+            </div>

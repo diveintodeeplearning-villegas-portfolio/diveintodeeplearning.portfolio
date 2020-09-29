@@ -1,0 +1,29 @@
+ <p class="lead">
+            Generative models are deep learning models that are able to create data such as photos, movies or music by itself.</p>
+
+            <p>Alex Radford presented a new system called Deep Convolutional Generative Adversarial Networks (DCGANs) that changed how everyone thought about building generative models with deep learning.</p>
+
+            <blockquote><p>DCGANs are able to “imagine” original images busing two deep neural networks that compete with each other. For example, DCGAN is able to hallucinate a complete bedroom by itself.</p></blockquote>
+
+            <p>It's like a new way that machines can understand the way we imagine things in our mind. Basically, the neural network uses raw data from the world to automatically build understanding from it.</p>
+
+            <p>For example, you can use DCGANs to make artwork for 8-bit video games.</p>
+
+            <p class="lead text-primary">The goal of Generative Models</p>
+
+            <p>The idea is that if machines are able to generate pictures of anything, so they have an understanding of it.</p>
+
+            <blockquote><p>For example, a picture of a dog is just a bunch of numbers that represent each pixel. So, the computer doesn't understand that the picture represents a concept. But if we fed the machine algorithm with thousands of pictures of dogs and after seeing those pictures, the computer was able to generate new pictures on its own and from different perspectives. Maybe we could use it to generate certain types of images such as "a human driving and eating pizza".</p></blockquote>
+
+            <p>If the computer were able to create an image of a dog with the right number of legs, tails, and ears, then it would prove that the computer knows what parts go into making up a "dog". So, it seems that a good generative model is a proof that computers are able to have a basic understanding at least on a very basic level.</p>
+            
+            <p>Using generative models, the computers are trained to understand concepts without explicitly taught the meaning of those concepts. So, having programs that are able to understand anything is a huge step for deep learning. Maybe in the future, there could be models that generate entire movies, music, or video games.</p>
+
+            <p> In fact, the video game industry is the first area of entertainment that is experimenting with AI and deep learning to generate raw content. Actually, deep-learning-based generative models are something new but pretty narrow.</p>
+
+            <p> </p>
+
+
+            <div class="pt-5">
+              <p>Categories:  <a href="#">Deep Learning</a>, <a href="#">Machine Learning</a>  Tags: <a href="#">#GANGS</a>, <a href="#">#DL</a></p>
+            </div>

@@ -1,0 +1,45 @@
+ <p class="lead">
+            Nowadays, Artificial Intelligence can be used for making our electronic devices more personal. AI can be used for many things such as simplify the daily task and increase productivity. Emotion AI (or affective computing) is a new technology to make electronic devices understand our moods. For example, our smart refrigerator could interpret how we feel. The smart refrigerator could use its sensor to know your mood by your voice. The smart refrigerator could use its video camera to know when you slam the door. So, the smart device could use this information taken by its sensor to recommend you food that matches those feelings. </p>
+
+            <p>In the case of cars, it could have a sensor to learn your driving habits and know when you are angry.
+</p>
+
+            <p>In fact, the humans use non-verbal cues such as facial expressions, gestures, and tone of voice to communicate their feelings. </p>
+
+            <blockquote><p>Emotion AI uses natural language processing (NLP), computer vision, and voice analysis to detect those moods and emotions. So, the Voice of the customer (VoC) program will perform granular and individual sentiment analysis at scale. This means that our electronic devices will know our mood using its sensors.  </p></blockquote>
+
+            <p>Some tech giants such as Google, Amazon, Apple, Facebook, Microsoft, Baidu, and Tencent have been researching in AI in order to enhance their platforms and ecosystems.</p>
+
+            <p>The conversational services such as Apple’s Siri, Microsoft’s Cortana, and Google Assistant are still a young technology. It is expected that soon this technology going to mature. </p>
+
+            <p class="lead">In fact, 40% of smartphone users are using the conversational system, according to a 2017 Gartner survey of online adults in the United States. These conversational systems will be able to understand emotional states and contexts, which means that an electronic device will know if we are happy or angry.
+</p>
+
+            
+            <p>Nowadays, there are many smartphones apps and smart home devices that use their sensors to know our emotions. There are some prototypes and commercial products such as Emoshape’s connected home hub, Beyond Verbal's voice recognition app, and the connected home VPA Hubble. There are many tech giants such as IBM, Google, and Microsoft that are investing in Emotion AI. In addition, there are some startups that are investing in Emotion AI.   </p>
+
+            
+            <blockquote><p>Actually, there is not enough information about Emotion AI. Emotional AI analyzes data from facial expressions, voice intonation, and behavioral patterns will significantly enhance the user experience. 
+ </p></blockquote>
+            <p>Emotion AI has been expanded to other areas such as educational software, video games, diagnostic software, athletic and health performance, and autonomous cars. There are few applications about emotion AI, but in 2018 there will be many products and projects of Emotion AI. </p>
+
+            <p class="lead">Emotion AI is more than smartphones and connected-home devices. There are wearables and the connected car that will collect, analyze, and process users' emotional data via computer vision, audio, or sensors. It is expected that the captured behavioral data will allow devices to adapt or respond to a user's needs.  
+</p>
+
+            <p>There are many companies such as Affectiva, Eyeris, and Audeering that teamed up with automotive OEMs to develop new experiences inside the car that monitor users’ behavior in order to offer assistance, monitor safe-driving behavior, and enhance their ride.  </p>
+            
+            <p>There are more applications of Emotion AI such as medical wristbands that can anticipate a seizure a few minutes before the actual event. There are also special apps for diagnostics and therapy that are able to recognize conditions such as depression or help children with autism. </p>
+
+            
+            <p> Besides Emotion AI, there is a research about anthropomorphic qualities in AI systems such as personal assistant robots (PARs) that are able to adapt to different emotional contexts or individuals. A PAR would develop a “personality” as it has more interactions with its owner in order to have a better experience. There are some giant techs such as IBM and some startups such as Emoshape that are developing techniques to lend such anthropomorphic qualities to robotic systems. </p>
+
+            
+            <p> Besides enhancing robotics and personal devices, emotion AI can be used for customer experience initiatives such as VoC programs. There are many products that use sentiment analysis by mining billions of data points on social media platforms and user forums. These programs are limited to a close group of people, while others are more advanced programs that are able to attribute nuanced emotional states. 
+The Emotion AI is a young technology, so there are few VoC products that are enhanced by using Emotion AI technology. We expect that more startups and Giant tech companies start to use Emotion AI technology for their products and services.    </p>
+
+            
+            <div class="pt-5">
+              <p>Categories:  <a href="#">Deep Learning</a>, <a href="#">Machine Learning</a>  Tags: <a href="#">#ML</a>, <a href="#">#DL</a></p>
+            </div>
+
+    

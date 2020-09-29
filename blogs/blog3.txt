@@ -1,0 +1,37 @@
+
+            <p class="lead">
+           
+            DCGAN can be used to generate new artwork for old video games. </p>
+
+            <p>Now, we are going to build a DCGAN to generate screenshots of imaginary video games for Nintendo Entertainment System based on screenshots of real-old games.</p>
+
+            <blockquote><p>The idea is to generate realistic screenshots of imaginary video games using screenshots to feed the neural network.</p></blockquote>
+
+            <p>Video game art was very simple because the NES had a small amount of memory, so the programmers used lots of tricks to fit the game art into memory. In fact, it was used tile-based graphics in order to maximize the limited space. Actually, each screen in the game is made up of just a few repeated graphical tiles.</p>
+
+            <p>The idea is to generate screenshots with shapes and patterns (i.e. stones, water, bridges, and so on) that we can use as 16x16 tiles in our game. Then, these tiles can be used to build our own 8-bit-style video game levels.</p>
+
+            <p class="lead text-primary">Getting Data</p>
+
+            <p>In order to train the AI system, you will need lots of data. For this, you can use more than 700 games for the NES that you can pull from. </p>
+
+            <blockquote><p>You can download the NES game screenshots on The Video Game Museum. In fact, DCGANs only work with small images (i.e. 256 pixels square). You can crop the images if you want.</p></blockquote>
+
+            <p class="lead text-primary">Setting up the DCGAN</p>
+
+            <p>There are many open-source implementations of DCGANs on GitHub that you can try out. In this case, you can use Taehoon Kim’s Tensorflow implementation because DCGANs are unsupervised. This means that you feed the DCGAN with a lot of data, and then you tweak its parameters to train it. Once it is trained, you can see the results you can get. </p>
+            
+            <p>Once you trained the DCGANs with a lot of screenshots of old video games and you waited few hours of training, the generated images with 16x16 tiles must look nice. </p>
+
+            <p> Then, you need to pre-process the generated images to be sure they only used the 64 colors that are available on the NES. Then, you can split the generated image into 16x16 tiles. Then, you can arrange those 16x16 tiles into a simple level layout. You can even add some main characters to your own generated level to make it look better. You can even add some menu elements to make it look more realistic. </p>
+
+            <p> This was just a tutorial to build your own AI model to generate artwork.  </p>
+
+             <blockquote><p> In fact, you can do a lot of things with DCGANs, you can create a new animal, generate realistic drawings, and even age the faces of people.</p></blockquote>
+
+
+            <div class="pt-5">
+              <p>Categories:  <a href="#">Deep Learning</a>, <a href="#">Machine Learning</a>  Tags: <a href="#">#DCGANs</a>, <a href="#">#DL</a></p>
+            </div>
+
+        
