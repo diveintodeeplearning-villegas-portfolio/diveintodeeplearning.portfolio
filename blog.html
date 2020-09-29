@@ -486,7 +486,7 @@ function loadDIDL() {
       document.getElementById("diveintodl-section").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "/diveintodl.txt", true);
+  xhttp.open("GET", "diveintodl.txt", true);
   xhttp.send();
 }
 
@@ -497,7 +497,7 @@ function loadFooter() {
       document.getElementById("newsletter-section").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "/footer.txt", true);
+  xhttp.open("GET", "footer.txt", true);
   xhttp.send();
 }
 
@@ -508,7 +508,7 @@ function loadHome() {
       document.getElementById("home-section").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "/home.txt", true);
+  xhttp.open("GET", "home.txt", true);
   xhttp.send();
 }
 
@@ -519,7 +519,7 @@ function loadHeader() {
       document.getElementById("header-section").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "/header.txt", true);
+  xhttp.open("GET", "header.txt", true);
   xhttp.send();
 }
 
@@ -530,7 +530,7 @@ function loadSubscribe() {
       document.getElementById("subscribe-section").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "/subscribe.txt", true);
+  xhttp.open("GET", "subscribe.txt", true);
   xhttp.send();
 }
 
