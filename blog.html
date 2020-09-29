@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <title>Dive Into Deep Learning</title>
@@ -22,58 +22,26 @@
 
     <link rel="stylesheet" href="css/aos.css">
 
-    <link rel="stylesheet" href="css/style.css">
-     <style>
-      /* Set the size of the div element that contains the map */
-      #map {
-        height: 400px;  /* The height is 400 pixels */
-        width: 100%;  /* The width is the width of the web page */
-       }
+    <link rel="stylesheet" href="css/style.css?<?php echo filemtime('css/style.css');?>">
+     <!-- Load icon library search bar -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function () {
+                $.get("myScripts.html", function (data) {
+                    $("head").append(data);
+                });
+            });
+    </script>
 
-       .bg-dark2{
-            background-color: #512E5F  ; /*#512E5F*/
-        }
-    </style>
+    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f6037a8f875b3001244a699&product=inline-share-buttons' async='async'></script>
 
     <!-- primary color #32dbc6-->
-    <link rel="shortcut icon" type="image/jpg" href="images/ico.jpg">
+    <link rel="shortcut icon" type="image/jpg" href="images/dive_into_deep_learning_ico.jpg">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <style>
 
-/* Style the search field */
-form.findme input[type=text] {
-  padding: 3px; 
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 80%;
-  background: #f1f1f1;
-  
-}
-
-    /* Style the submit button */
-form.findme button {
-  float: left;
-  width: 20%;
-  padding: 3px;
-  background: #32dbc6;;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none; /* Prevent double borders */
-  cursor: pointer;
-}
-
-form.findme button:hover {
-      color: grey; 
-      background:#1ec7b2; 
-}
-
-form.findme button:focus {outline:0;}
-form.findme input[type=text]:focus {outline:0;}
-   </style>
-   
 
 <style>
 .filterDiv {
@@ -123,7 +91,7 @@ form.findme input[type=text]:focus {outline:0;}
 </style>
 
   </head>
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" onload="myloadfunc()">
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" onload="loadDIDL(),myloadfunc(),loadHome(),loadFooter(),loadSubscribe()">
 
   <div class="site-wrap">
 
@@ -136,42 +104,14 @@ form.findme input[type=text]:focus {outline:0;}
       <div class="site-mobile-menu-body"></div>
     </div>
 
-    <div class="border-bottom top-bar py-2 bg-dark" id="home-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <p class="mb-0">
-              <span><strong class="text-white">Email:</strong> <a href="#">info@diveintodeeplearning.com</a></span>
-            </p>
-          </div>
-          <div class="col-md-6">
-            <ul class="social-media">
-              <li><a href="https://github.com/diveintodeeplearning-villegas-portfolio" class="p-2"><span class="icon-github"></span></a></li>
-              <li><a href="https://www.linkedin.com/in/yazmin-v-52548a183/" class="p-2"><span class="icon-linkedin"></span></a></li>
-               <!--<li><a href="#" class="p-2"><span class="icon-search"></span></a></li>-->
- <li><div class="search-bar social-media">
-                  <!--///YOUR FORM/INPUT BOX-->
-            <form class="findme" action="search.php" method="post">
-                <input class="input-text" type="text" name="findMe"  id="search">
-                   <button type="submit"><i class="icon-search"></i></button>
-            </form>
-</div></li>
-                
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="border-bottom top-bar py-2 bg-dark" id="home-section"></div>
 
-    <header class="site-navbar py-4 bg-white js-sticky-header site-navbar-target" role="banner">
-
-      <div class="container">
+       <header class="site-navbar py-4 bg-white js-sticky-header site-navbar-target" role="banner" id="header-section">
+         <div class="container">
         <div class="row align-items-center">
+          
+           <div class="col-11 col-xl-2" id="diveintodl-section"></div>
 
-          <div class="col-11 col-xl-2">
-            <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0"></a> <a href="index.html#">
-              <img src="images/logo.jpg" alt="Logo" class="img-fluid"></a></h1>
-          </div>
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
 
@@ -185,10 +125,10 @@ form.findme input[type=text]:focus {outline:0;}
                   <a href="index.html#about-section" class="nav-link">About</a>
                   <ul class="dropdown">
                     <li><a href="index.html#about-section">Specialties</a></li>
-                     <li><a href="index.html#team-section">Our Team</a></li>
-                     <li><a href="index.html#certificates-section">Certificates</a></li>
+                    <li><a href="index.html#team-section">Our Team</a></li>
+                    <li><a href="index.html#certificates-section">Certificates</a></li>
                   </ul>
-                </li>   
+                </li>
                 <li class="has-children">
                     <a href="#blog-section" class="nav-link">Blog</a>
                     <ul  class="dropdown">
@@ -208,24 +148,30 @@ form.findme input[type=text]:focus {outline:0;}
       </div>
 
     </header>
+    <!--<div id="background-image-section"></div>-->
 
 
-    <div class="site-blocks-cover overlay" style="background-image: url(images/hero_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+
+  <!--<div class="site-blocks-cover overlay" style="background-image: url(images/hero_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">-->
+    <div class="site-blocks-cover " style="background-image: url(images/dive_into_deep_learning_hero_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
 
           <div class="col-md-12" data-aos="fade-up" data-aos-delay="400">
-
+                        
             <div class="row justify-content-center mb-4">
               <div class="col-md-8 text-center">
-                <h1><span class="typed-words"></span></h1>
-                <h1>Blog</h1>
+                <h1 class="text-primary" style="background-color:rgb(255,255,255,0.8);">Dive into <span class="typed-words-blog text-primary"></span></h1>
+                <h1 class="text-black">Blog</h1>
+                <!--<div><a data-fancybox data-ratio="2" href="https://www.youtube.com/watch?v=KNAWp2S3w94" class="btn btn-primary btn-md">Watch Video</a></div>-->
+              </div>
             </div>
-            </div>
+
           </div>
         </div>
       </div>
-    </div>
+    </div> 
+
 
 
     <!-- Gallery Area Start-->           
@@ -253,33 +199,33 @@ form.findme input[type=text]:focus {outline:0;}
                 <!-- Single Gallery Item -->
                 <div class="col-md-6 col-lg-4 mb-4 mb-lg-4 single_gallery_item mb-30 wow fadeInUp filterDiv gan" data-wow-delay="100ms"> 
                   <div class="h-entry single-portfolio-content">
-                   <a href="blog1.html"><img src="images/img_11.jpg" alt="Image" class="img-fluid"></a>
-                   <h2 class="font-size-regular"><a href="blog1.html">GANs to make 8-bit Pixel art</a></h2>
+                   <a href="/dl-blogs/blog1.html"><img src="images/artificial_intelligence.jpg" alt="Artificial Intelligence" class="img-fluid"></a>
+                   <h2 class="font-size-regular"><a href="/dl-blogs/blog1.html">GANs to make 8-bit Pixel art</a></h2>
                     <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 8, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
                    <p>Generative models are deep learning models that are able to create data such as photos, movies or music by itself. GANs are used to make 8-bit Pixel art like paintings, images, etc. </p>
-                    <p><a href="blog1.html">Continue Reading...</a></p>
+                    <p><a href="/dl-blogs/blog1.html">Continue Reading...</a></p>
                   </div>
                 </div>
 
                 <!-- Single Gallery Item -->
                 <div class="col-md-6 col-lg-4 mb-4 mb-lg-4 single_gallery_item mb-30 wow fadeInUp filterDiv dcgan" data-wow-delay="100ms">
                  <div class="h-entry single-portfolio-content">
-                  <a href="blog2.html"><img src="images/img_55.jpg" alt="Image" class="img-fluid"></a>
-                  <h2 class="font-size-regular"><a href="blog2.html">How DCGANs work</a></h2>
+                  <a href="/dl-blogs/blog2.html"><img src="images/face_recognition.jpg" alt="Face recognition" class="img-fluid"></a>
+                  <h2 class="font-size-regular"><a href="/dl-blogs/blog2.html">How DCGANs work</a></h2>
                   <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 8, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
                   <p>To build a DCGAN, you create two deep neural networks that will fight against each other. So, these deep neural networks will fight endlessly to become stronger. </p>
-                  <p><a href="blog2.html">Continue Reading...</a></p>
+                  <p><a href="/dl-blogs/blog2.html">Continue Reading...</a></p>
                  </div>
                 </div>
 
                 <!-- Single Gallery Item -->
                 <div class="col-md-6 col-lg-4 mb-4 mb-lg-4 single_gallery_item mb-30 wow fadeInUp filterDiv dcgan" data-wow-delay="100ms">
                   <div class="h-entry single-portfolio-content">
-                    <a href="blog3.html"><img src="images/img_66.jpg" alt="Image" class="img-fluid"></a>
-                    <h2 class="font-size-regular"><a href="blog3.html">DCGAN for Video games</a></h2>
+                    <a href="/dl-blogs/blog3.html"><img src="images/deep_learning_1.jpg" alt="Deep Learning" class="img-fluid"></a>
+                    <h2 class="font-size-regular"><a href="/dl-blogs/blog3.html">DCGAN for Video games</a></h2>
                     <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 8, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
                     <p>DCGAN can be used to generate new artwork for old video games. We are going to build a DCGAN to generate screenshots of imaginary video games like Nintendo.</p>
-                   <p><a href="blog3.html">Continue Reading...</a></p>
+                   <p><a href="/dl-blogs/blog3.html">Continue Reading...</a></p>
                   </div>
                 </div>
 
@@ -287,33 +233,33 @@ form.findme input[type=text]:focus {outline:0;}
                  <!-- Single Gallery Item -->
                 <div class="col-md-6 col-lg-4 mb-4 mb-lg-4 single_gallery_item mb-30 wow fadeInUp filterDiv cnn" data-wow-delay="100ms">
                   <div class="h-entry single-portfolio-content">
-                    <a href="blog4.html"><img src="images/img_77.jpg" alt="Image" class="img-fluid"></a>
-                    <h2 class="font-size-regular"><a href="blog4.html">12 Amazing Deep Learning breakthroughs</a></h2>
+                    <a href="/dl-blogs/blog4.html"><img src="images/machine_learning.jpg" alt="Machine Learning" class="img-fluid"></a>
+                    <h2 class="font-size-regular"><a href="/dl-blogs/blog4.html">12 Amazing Deep Learning breakthroughs</a></h2>
                     <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 8, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
                     <p>The last year many AI engineers aimed to create a real artificial intelligence system. A real machine that thinks is what every AI geek wants. Machine learning is the most successful application of AI.</p>
-                   <p><a href="blog4.html">Continue Reading...</a></p>
+                   <p><a href="/dl-blogs/blog4.html">Continue Reading...</a></p>
                   </div>
                 </div>
 
               <!-- Single Gallery Item -->
                 <div class="col-md-6 col-lg-4 mb-4 mb-lg-4 single_gallery_item mb-30 wow fadeInUp filterDiv cnn" data-wow-delay="100ms">
                   <div class="h-entry single-portfolio-content">
-                    <a href="blog5.html"><img src="images/img_66.jpg" alt="Image" class="img-fluid"></a>
-                    <h2 class="font-size-regular"><a href="blog5.html">Deep learning and CNNs</a></h2>
+                    <a href="/dl-blogs/blog5.html"><img src="images/deep_learning_3.jpg" alt="Deep Learning" class="img-fluid"></a>
+                    <h2 class="font-size-regular"><a href="/dl-blogs/blog5.html">Deep learning and CNNs</a></h2>
                     <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 18, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
                     <p>In this article, you will learn how to create your convolutional neural network (ConvNet) for recognizing objects in images. In fact, Google Photos uses deep learning to search your photos.</p>
-                   <p><a href="blog5.html">Continue Reading...</a></p>
+                   <p><a href="/dl-blogs/blog5.html">Continue Reading...</a></p>
                   </div>
                 </div>
 
               <!-- Single Gallery Item -->
                 <div class="col-md-6 col-lg-4 mb-4 mb-lg-4 single_gallery_item mb-30 wow fadeInUp filterDiv nlp" data-wow-delay="100ms">
                   <div class="h-entry single-portfolio-content">
-                    <a href="blog6.html"><img src="images/img_111.jpg" alt="Image" class="img-fluid"></a>
-                    <h2 class="font-size-regular"><a href="blog6.html">Emotion AI</a></h2>
+                    <a href="/dl-blogs/blog6.html"><img src="images/artificial_intelligence_2.jpg" alt="Artificial Intelligence" class="img-fluid"></a>
+                    <h2 class="font-size-regular"><a href="/dl-blogs/blog6.html">Emotion AI</a></h2>
                     <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 18, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
                     <p>Nowadays, Artificial Intelligence can be used for making our electronic devices more personal. AI can be used for many things such as simplify the daily task and increase productivity.</p>
-                   <p><a href="blog6.html">Continue Reading...</a></p>
+                   <p><a href="/dl-blogs/blog6.html">Continue Reading...</a></p>
                   </div>
                 </div>
 
@@ -420,73 +366,9 @@ form.findme input[type=text]:focus {outline:0;}
     <!-- Gallery Area End -->
 
 
-    <a href="#" class="bg-primary py-5 d-block"><!--bg-primary-->
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md10"><h2 class="text-white">Let's Get Started</h2></div> <!--text-white-->
-        </div>
-      </div>
-    </a>
+ <section  id="subscribe-section"></section>
 
-    <section  id="newsletter-section">
-    <footer class="site-footer bg-dark">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9">
-            <div class="row">
-              <div class="col-md-5">
-                <h2 class="footer-heading mb-4">About Us</h2>
-                <p>Dive Into Deep Learning team can help you with your AI projects.</p>
-              </div>
-              <div class="col-md-3 ml-auto">
-                <h2 class="footer-heading mb-4">Features</h2>
-                <ul class="list-unstyled">
-                  <li><a href="#about-section" >About Us</a></li>
-                  <li><a href="#services-section" >Services</a></li>
-                  <li><a href="#testimonials-section" >Testimonials</a></li>
-                  <li><a href="#contact-section" >Contact Us</a></li>
-                </ul>
-              </div>
-              <div class="col-md-3">
-                <h2 class="footer-heading mb-4">Follow Us</h2>
-                <a href="https://github.com/aisolutionsanddeeplearning/" class="pl-0 pr-3"><span class="icon-github"></span></a>
-                <a href="https://www.linkedin.com/in/yazmin-v-52548a183/" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
-            
- <form  method="post" action="addemail.php"> <!--action="addemail.php" onsubmit="return false"-->
-	              <div class="input-group mb-3">
-	                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Name" aria-label="Name" aria-describedby="button-addon2" name="name" id="name" required>
-	                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Email" aria-label="Email" aria-describedby="button-addon2" name="email" id ="email" required>
-	                <div class="input-group-append "  >
-	                  <button class="btn btn-primary text-white" onSubmit="funcSubscribe()" type="submit" id="button-addon2" value="Subscribe" name="subscribe">Send </button>
-	                   
-	                </div>
-	                
-	              </div>
-	             <span class="text-primary" id="subMessage">Thank you!<br><span class="text-white">You're subscribed!</span></span>
-	            <span class="text-white" id="failMessage">Please enter a valid email address</span>
-	            </form>
-          </div>
-        </div>
-        <div class="row pt-5 mt-5 text-center">
-          <div class="col-md-12">
-            <div class="border-top pt-5">
-            <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Dive Into Deep Learning <script>document.write(new Date().getFullYear());</script><!--| AI for everybody with <i class="icon-heart text-danger" aria-hidden="true"></i> -->
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </footer>
- </section>
+<section  id="newsletter-section"></section>
 
 
  
@@ -528,11 +410,16 @@ function myloadfunc(){
 function filterSelection(c) {
   var x, i;
   x = document.getElementsByClassName("filterDiv");
-  if (c == "all" || c== 'undefined') c = "";
+  if (c == "all" || c== 'undefined') 
+  {
+      document.getElementById('all').focus();
+      c = "";
+  }
   for (i = 0; i < x.length; i++) {
     w3RemoveClass(x[i], "show");
     if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
   }
+  document.getElementById(c).focus();
 }
 
 function w3AddClass(element, name) {
@@ -556,8 +443,6 @@ function w3RemoveClass(element, name) {
   element.className = arr1.join(" ");
 }
 
-
-
 </script>
  
   <script src="js/jquery-3.3.1.min.js"></script>
@@ -575,20 +460,11 @@ function w3RemoveClass(element, name) {
   <script src="js/jquery.sticky.js"></script>
 
   <script src="js/typed.js"></script>
-            <script>
-            var typed = new Typed('.typed-words', {
-            strings: [" Deep Learning"," Machine Learning"," Artificial Intelligence"," Convolutional Neural Network"," Natural Language Processing"],
-            typeSpeed: 80,
-            backSpeed: 80,
-            backDelay: 4000,
-            startDelay: 1000,
-            loop: true,
-            showCursor: true
-            });
-            </script>
 
    
-  <script src="js/main.js"></script>
+  <script src="js/main5.js?<?php echo filemtime('js/main5.js');?>"></script>
+  
+  
         <!-- **** All JS Files ***** -->
     <!-- jQuery 2.2.4 -->
     <script src="js/jquery.min.js"></script>
@@ -601,32 +477,66 @@ function w3RemoveClass(element, name) {
     <!-- Active -->
     <script src="js/default-assets/active.js"></script>
 
-
-<script  type="text/javascript">
-// When the user clicks on div, open the popup
-function funcSubscribe() {
- //var message = "<?PHP echo $message ?>"; 
- //   if(message == "success"){
-         var x = document.getElementById("subMessage");
-             x.style.display = "inline-block";
-//} else {
-  //  var f = document.getElementById("failMessage");
-    //    f.style.display = "inline-block";
-//}
-}
-</script>
 <script>
-    var x = document.getElementById("subMessage");
-    x.style.display = "none";
-     
-    var f = document.getElementById("failMessage");
-    f.style.display = "none";
-</script>
 
+function loadDIDL() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("diveintodl-section").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/diveintodl.txt", true);
+  xhttp.send();
+}
 
+function loadFooter() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("newsletter-section").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/footer.txt", true);
+  xhttp.send();
+}
 
+function loadHome() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("home-section").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/home.txt", true);
+  xhttp.send();
+}
+
+function loadHeader() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("header-section").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/header.txt", true);
+  xhttp.send();
+}
+
+function loadSubscribe() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("subscribe-section").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/subscribe.txt", true);
+  xhttp.send();
+}
+
+    </script>
   </body>
-</html>
 
+</html>
 
 

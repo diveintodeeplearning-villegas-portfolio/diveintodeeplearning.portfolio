@@ -22,67 +22,51 @@
 
     <link rel="stylesheet" href="css/aos.css">
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="style.css">
-      <style>
+    <link rel="stylesheet" type="text/css" href="css/style.css?<?php echo filemtime('css/style.css');?>" >
+     <!-- Load icon library search bar -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-/* Style the search field */
-form.findme input[type=text] {
-  padding: 3px; 
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 80%;
-  background: #f1f1f1;
+    <script src="https://kit.fontawesome.com/fc32c7c4fd.js" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function () {
+                $.get("myScripts.html", function (data) {
+                    $("head").append(data);
+                });
+            });
+    </script>
+
+    <style>  
+/*
+outline-white {
+ 	font: Tahoma, Geneva, sans-serif;
+	font-size: 64px;
+    color: white;
+    text-shadow:
+    
+    -1px -1px 0 #000000,
+    1px -1px 0 #000000,
+    -1px 1px 0 #000000,
+    1px 1px 0 #000000,  
+    -2px 0 0 #000000,
+    2px 0 0 #000000,
+    0 2px 0 #000000,
+    0 -2px 0 #000000, 
   
-}
-
-    /* Style the submit button */
-form.findme button {
-  float: left;
-  width: 20%;
-  padding: 3px;
-  background: #32dbc6;;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none; /* Prevent double borders */
-  cursor: pointer;
-}
-
-form.findme button:hover {
-      color: grey; 
-      background:#1ec7b2;
-}
-form.findme button:focus {outline:0;}
-form.findme input[type=text]:focus {outline:0;}
-   </style>
-   
-     <style>
-        /* ------------------------------------------
-[Master Stylesheet]
-
---------------------------------------------- */
-#map {
-            height: 600px;
-             width: 100%; }
-         @media only screen and (max-width: 767px) {
-        #map {
-             height: 400px; } }
-        #map iframe {
-              width: 100%;
-              height: 100%;
-              border: none !important;
-              border-radius: 10px; }
-/*# sourceMappingURL=style.css.map */
-
-    </style>
-
-    <link rel="shortcut icon" type="image/jpg" href="images/ico.jpg">
-   
+    -2px -2px 0 #ff0000,
+    2px -2px 0 #ff0000,
+    -2px 2px 0 #ff0000,
+    2px 2px 0 #ff0000,  
+    -3px 0 0 #ff0000,
+    3px 0 0 #ff0000,
+    0 3px 0 #ff0000,
+    0 -3px 0 #ff0000; 
+}*/
+   </style>  
+    <link rel="shortcut icon" type="image/jpg" href="images/dive_into_deep_learning_ico.jpg">
   </head>
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
- 
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300"  onLoad="loadDIDL(),loadFooter(),loadHome(),loadSubscribe()">
+  
   <div class="site-wrap">
 
     <div class="site-mobile-menu site-navbar-target">
@@ -93,58 +77,15 @@ form.findme input[type=text]:focus {outline:0;}
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
+   
+    <div class="border-bottom top-bar py-2 bg-dark" id="home-section"></div>
 
-
-    <div class="border-bottom top-bar py-2 bg-dark" id="home-section"> <!--bg-dark2-->
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <p class="mb-0">
-              <span><strong class="text-white">Email:</strong> <a href="#">info@diveintodeeplearning.com</a></span>
-            </p>
-          </div>
-          <div class="col-md-6 " ><!--class="class="social-media"-->
-            <ul class="social-media">
-              <li><a href="https://github.com/diveintodeeplearning-villegas-portfolio" class="p-2"><span class="icon-github"></span></a></li>
-              <li><a href="https://www.linkedin.com/in/yazmin-v-52548a183/" class="p-2"><span class="icon-linkedin"></span></a></li>
-              <!--<li><form method="get" action="" > <input type="text" name="search" id="search" value="" /> <input type="submit" name="submit" value="Search" class="no-outline" /> </form></li>-->
-             
-             
-              <!--<li><a href="#" class="p-2"><span class="icon-search"></span></a></li>--> 
-         <li><div class="search-bar social-media">
-                  <!--///YOUR FORM/INPUT BOX-->
-            <form class="findme" action="search.php" method="post">
-                <input class="input-text" type="text" name="findMe"  id="search">
-                  <button type="submit"><i class="icon-search"></i></button>
-            </form>
-</div></li>
-                <script>
-                    /*
-                  var defaultText = "";
-                   var searchBox = document.getElementById(""); //default text after load 
-                   searchBox.value = defaultText; //on focus behaviour
-                    searchBox.onfocus = function() { if (this.value == defaultText) {//clear text field 
-                    this.value = ''; } } //on blur behaviour 
-                    searchBox.onblur = function() { if (this.value == "") {//restore default text 
-                    this.value = defaultText; } }
-                    */
-                </script>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <header class="site-navbar py-4 bg-white js-sticky-header site-navbar-target" role="banner">
-
-      <div class="container">
+       <header class="site-navbar py-4 bg-white js-sticky-header site-navbar-target" role="banner" id="header-section">
+         <div class="container">
         <div class="row align-items-center">
+          
+           <div class="col-11 col-xl-2" id="diveintodl-section"></div>
 
-          <div class="col-11 col-xl-2">
-            <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0"> </a><a href="index.html">
-              <img src="images/logo.jpg" alt="Logo" class="img-fluid"></a></h1>
-           <!--   <img src="images/logo.jpg" alt="Logo" class="img-fluid">-->
-          </div>
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
 
@@ -161,7 +102,7 @@ form.findme input[type=text]:focus {outline:0;}
                     <li><a href="#team-section">Our Team</a></li>
                     <li><a href="#certificates-section">Certificates</a></li>
                   </ul>
-                </li>   
+                </li>
                 <li class="has-children">
                     <a href="#blog-section" class="nav-link">Blog</a>
                     <ul  class="dropdown">
@@ -181,58 +122,60 @@ form.findme input[type=text]:focus {outline:0;}
       </div>
 
     </header>
+    <!--<div id="background-image-section"></div>-->
 
 
 
-    <div class="site-blocks-cover overlay" style="background-image: url(images/hero_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+  <!--<div class="site-blocks-cover overlay" style="background-image: url(images/hero_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">-->
+    <div class="site-blocks-cover " style="background-image: url(images/dive_into_deep_learning_hero_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
 
           <div class="col-md-12" data-aos="fade-up" data-aos-delay="400">
-
+                        
             <div class="row justify-content-center mb-4">
               <div class="col-md-8 text-center">
-                <h1>Deep into <span class="typed-words"></span></h1>
+                <h1 class="text-primary">Dive into <span class="typed-words text-primary"></span></h1>
                 <p> </p>
-                <p class="lead mb-5">We develop, train and optimize deep learning and machine learning models.</p>
+                <p class="lead mb-5 text-black"> We develop, train and optimize <br>DL and ML models.</p>
                 <!--<div><a data-fancybox data-ratio="2" href="https://www.youtube.com/watch?v=KNAWp2S3w94" class="btn btn-primary btn-md">Watch Video</a></div>-->
+              </div>
             </div>
-            </div>
+
           </div>
         </div>
       </div>
-    </div>
-
-
-
+    </div> 
+ 
+    
 
     <section class="site-section">
       <div class="container">
         <div class="row">
 
-            <div class="col-md-6 col-lg-4">
+          <div class="col-md-6 col-lg-4">
             <div class="p-3 box-with-humber">
               <div class="number-behind">AI</div>
               <h2 class="text-primary">Artificial Intelligence</h2>
               <p class="mb-4">Artificial intelligence (AI) aims to simulate human intelligence to think and learn like humans do and mimic their actions.</p>
               <ul class="list-unstyled ul-check primary">
-                <li>Deep Learning</li>
+                 <li>Deep Learning</li>
                 <li>Machine learning</li>
               </ul>
             </div>
           </div>
-        
+
           <div class="col-md-6 col-lg-4">
             <div class="p-3 box-with-humber">
               <div class="number-behind">ML</div>
-              <h2 class="text-primary">Machine Learning</h2>
+               <h2 class="text-primary">Machine Learning</h2>
               <p class="mb-4">Machine learning automates analytical model building. It's a generic algorithm to learn from data, identify patterns and make decisions.</p>
               <ul class="list-unstyled ul-check primary">
                 <li>Supervised Learning</li>
                 <li>Unsupervised Learning</li>
               </ul>
             </div>
-          </div> 
+          </div>
 
           <div class="col-md-6 col-lg-4">
             <div class="p-3 box-with-humber">
@@ -245,12 +188,9 @@ form.findme input[type=text]:focus {outline:0;}
               </ul>
             </div>
           </div>
+        </div>
       </div>
-      </div>
-
     </section>
-
-    
 
     <section class="site-section" id="work-section">
       <div class="container">
@@ -261,9 +201,8 @@ form.findme input[type=text]:focus {outline:0;}
             <p class="lead">This portfolio has Convolutional Neural Network and Sequence Models projects. </p>
           </div>
         </div>
-      </div>
-
-<div class="slide-one-item home-slider owl-carousel" data-ride="carousel">   
+     
+     <div class="slide-one-item home-slider owl-carousel hide-small" data-ride="carousel">   
         <div class="row">
           <figure class="col-md-6 col-lg-4 d-md-inline-block">
                 <a href="training_tf_js_model_in_browser.html" class="media-1">
@@ -287,7 +226,7 @@ form.findme input[type=text]:focus {outline:0;}
           
             <figure class="col-md-6 col-lg-4 d-md-inline-block">
                 <a href="https://github.com/diveintodeeplearning-villegas-portfolio/Deep-Learning/blob/master/Convolutional%20neural%20network/week4/Face%20Recognition/Face%20Recognition%20for%20the%20Happy%20House%20-%20v3.ipynb" class="media-1">
-              <img src="images/img_55.jpg" alt="Image" class="img-fluid">
+              <img src="images/face_recognition.jpg" alt="Face recognition" class="img-fluid">
               <div class="media-1-content">
                 <h2>Convolutional Neural Network</h2>
                 <span class="category">Face Recognition</span>
@@ -299,7 +238,7 @@ form.findme input[type=text]:focus {outline:0;}
     
             <figure class="col-md-6 col-lg-4 d-md-inline-block">
              <a href="https://github.com/diveintodeeplearning-villegas-portfolio/Deep-Learning/blob/master/Convolutional%20neural%20network/week3/Car%20detection%20for%20Autonomous%20Driving/Autonomous%20driving%20application%20-%20Car%20detection%20-%20v3.ipynb" class="media-1">
-              <img src="images/img_11.jpg" alt="Image" class="img-fluid">
+              <img src="images/artificial_intelligence.jpg" alt="Artificial Intelligence" class="img-fluid">
               <div class="media-1-content">
                 <h2>Convolutional Neural Network</h2>
                 <span class="category">Car detection for Autonomous Driving</span>
@@ -310,7 +249,7 @@ form.findme input[type=text]:focus {outline:0;}
 
             <figure class="col-md-6 col-lg-4 d-md-inline-block">
                  <a href="https://github.com/diveintodeeplearning-villegas-portfolio/Deep-Learning/blob/master/Convolutional%20neural%20network/week4/Neural%20Style%20Transfer/Art_Generation_with_Neural_Style_Transfer_v3a.ipynb" class="media-1">
-              <img src="images/img_66.jpg" alt="Image" class="img-fluid">
+              <img src="images/deep_learning_1.jpg" alt="Deep Learning" class="img-fluid">
               <div class="media-1-content">
                 <h2>Convolutional Nueral Network</h2>
                 <span class="category">Neural Style Transfer</span>
@@ -322,7 +261,7 @@ form.findme input[type=text]:focus {outline:0;}
       
             <figure class="col-md-4 d-md-inline-block">
                  <a href="https://github.com/diveintodeeplearning-villegas-portfolio/Deep-Learning/blob/master/The_Best_ChatBot/the_best_chatbot.py" class="media-1">
-                  <img src="images/img_22.jpg" alt="Image" class="img-fluid">
+                  <img src="images/deep_learning_4.jpg" alt="Chatbot" class="img-fluid">
                   <div class="media-1-content">
                     <h2>Natural Language Processing</h2>
                     <span class="category">Chatbot</span>
@@ -333,7 +272,7 @@ form.findme input[type=text]:focus {outline:0;}
        <div class="row">
             <figure class="col-md-4 d-md-inline-block">
                  <a href="https://github.com/diveintodeeplearning-villegas-portfolio/Deep-Learning/blob/master/Seuqnece%20models/Week%203/Machine%20Translation/Neural%20machine%20translation%20with%20attention%20-%20v4.ipynb" class="media-1" >
-                <img src="images/img_44.png" alt="Image" class="img-fluid">
+                <img src="images/nlp.jpg" alt="NLP" class="img-fluid">
                 <div class="media-1-content">
                     <h2>Natural Language Processing</h2>
                     <span class="category">Neural Machine Translation</span>
@@ -343,7 +282,7 @@ form.findme input[type=text]:focus {outline:0;}
 
             <figure class="col-md-4 d-md-inline-block">
                  <a href="https://github.com/diveintodeeplearning-villegas-portfolio/Deep-Learning/blob/master/Seuqnece%20models/Week%201/Jazz%20improvisation%20with%20LSTM/Improvise%20a%20Jazz%20Solo%20with%20an%20LSTM%20Network%20-%20v3.ipynb" class="media-1" >
-              <img src="images/img_33.jpg" alt="Image" class="img-fluid">
+              <img src="images/deep_learning_2.jpg" alt="Deep Learning" class="img-fluid">
               <div class="media-1-content">
                 <h2>Sequence models</h2>
                 <span class="category">Jazz improvisation with LSTM</span>
@@ -352,8 +291,112 @@ form.findme input[type=text]:focus {outline:0;}
             </figure>
      </div>
 </div>
-<!--/.Carousel Wrapper-->    </section>
+ </div>
+<!--/.Carousel Wrapper-->
 
+<!--Carousel Wrapper Mobile-->
+
+ <div class="slide-one-item home-slider owl-carousel hide-medium hide-large" data-ride="carousel">   
+        <div class="row">
+          <figure class="col-md-6 col-lg-4 d-md-inline-block">
+                <a href="training_tf_js_model_in_browser.html" class="media-1">
+              <img src="images/convolutional_neural_network.jpg" alt="Convolutional Neural Network" class="img-fluid">
+              <div class="media-1-content">
+                <h2>Convolutional Neural Network</h2>
+                <span class="category">Image classification with TensorFlow.js <br> Transfer Learning using MobileNet</span>
+              </div>
+            </a>
+         </figure>
+          </div>
+
+          <div class="row">
+          <figure class="col-md-6 col-lg-4 d-md-inline-block">
+                <a href="training_fashion_mnist_model_in_browser.html" class="media-1">
+              <img src="images/deep_learning.jpg" alt="Deep learning" class="img-fluid">
+              <div class="media-1-content">
+                <h2>Convolutional Neural Network</h2>
+                <span class="category">Image Classification with TensorFlow.js <br> CNN for Fashion Drawings Classification</span>
+              </div>
+            </a>
+         </figure>
+          </div>
+
+          <div class="row">
+            <figure class="col-md-6 col-lg-4 d-md-inline-block">
+                <a href="https://github.com/diveintodeeplearning-villegas-portfolio/Deep-Learning/blob/master/Convolutional%20neural%20network/week4/Face%20Recognition/Face%20Recognition%20for%20the%20Happy%20House%20-%20v3.ipynb" class="media-1">
+              <img src="images/face_recognition.jpg" alt="Face recognition" class="img-fluid">
+              <div class="media-1-content">
+                <h2>Convolutional Neural Network</h2>
+                <span class="category">Face Recognition</span>
+              </div>
+            </a>
+         </figure>
+    </div>
+
+       <div class="row">    
+            <figure class="col-md-6 col-lg-4 d-md-inline-block">
+             <a href="https://github.com/diveintodeeplearning-villegas-portfolio/Deep-Learning/blob/master/Convolutional%20neural%20network/week3/Car%20detection%20for%20Autonomous%20Driving/Autonomous%20driving%20application%20-%20Car%20detection%20-%20v3.ipynb" class="media-1">
+              <img src="images/artificial_intelligence.jpg" alt="Artificial Intelligence" class="img-fluid">
+              <div class="media-1-content">
+                <h2>Convolutional Neural Network</h2>
+                <span class="category">Car detection for Autonomous Driving</span>
+              </div>
+              </a>
+            </figure>
+        </div>
+
+          <div class="row">
+            <figure class="col-md-6 col-lg-4 d-md-inline-block">
+                 <a href="https://github.com/diveintodeeplearning-villegas-portfolio/Deep-Learning/blob/master/Convolutional%20neural%20network/week4/Neural%20Style%20Transfer/Art_Generation_with_Neural_Style_Transfer_v3a.ipynb" class="media-1">
+              <img src="images/deep_learning_1.jpg" alt="Deep Learning" class="img-fluid">
+              <div class="media-1-content">
+                <h2>Convolutional Nueral Network</h2>
+                <span class="category">Neural Style Transfer</span>
+               </div>
+                </a>
+             </figure>   
+      </div>
+
+          <div class="row">
+            <figure class="col-md-4 d-md-inline-block">
+                 <a href="https://github.com/diveintodeeplearning-villegas-portfolio/Deep-Learning/blob/master/The_Best_ChatBot/the_best_chatbot.py" class="media-1">
+                  <img src="images/deep_learning_4.jpg" alt="Chatbot" class="img-fluid">
+                  <div class="media-1-content">
+                    <h2>Natural Language Processing</h2>
+                    <span class="category">Chatbot</span>
+                  </div>
+                  </a>
+              </figure>
+           </div>
+
+       <div class="row">
+            <figure class="col-md-4 d-md-inline-block">
+                 <a href="https://github.com/diveintodeeplearning-villegas-portfolio/Deep-Learning/blob/master/Seuqnece%20models/Week%203/Machine%20Translation/Neural%20machine%20translation%20with%20attention%20-%20v4.ipynb" class="media-1" >
+                <img src="images/nlp.jpg" alt="NLP" class="img-fluid">
+                <div class="media-1-content">
+                    <h2>Natural Language Processing</h2>
+                    <span class="category">Neural Machine Translation</span>
+                </div>
+                </a>
+            </figure>
+        </div>
+
+          <div class="row">
+            <figure class="col-md-4 d-md-inline-block">
+                 <a href="https://github.com/diveintodeeplearning-villegas-portfolio/Deep-Learning/blob/master/Seuqnece%20models/Week%201/Jazz%20improvisation%20with%20LSTM/Improvise%20a%20Jazz%20Solo%20with%20an%20LSTM%20Network%20-%20v3.ipynb" class="media-1" >
+              <img src="images/deep_learning_2.jpg" alt="Deep Learning" class="img-fluid">
+              <div class="media-1-content">
+                <h2>Sequence models</h2>
+                <span class="category">Jazz improvisation with LSTM</span>
+              </div>
+            </a>
+            </figure>
+            </div>
+     </div>
+</div>
+ </div>
+<!--/.Carousel Wrapper Mobile-->
+    </section>
 
     <section class="section ft-feature-1">
       <div class="container">
@@ -361,13 +404,13 @@ form.findme input[type=text]:focus {outline:0;}
           <div class="col-12 bg-black w-100 ft-feature-1-content">
             <div class="row align-items-center">
               <div class="col-lg-5">
-
-                  <img src="images/about_2.jpg" alt="Image" class="img-fluid mb-4 mb-lg-0">
-
+                
+                  <img src="images/deep_learning_about_2.jpg" alt="Deep Learning Image" class="img-fluid mb-4 mb-lg-0">
+                
               </div>
               <div class="col-lg-3 ml-auto">
                 <div class="mb-5">
-                  <h3 class="d-flex align-items-center"><span class="icon icon-android mr-2"></span><span>Deep learning models </span></h3>
+                 <h3 class="d-flex align-items-center"><span class="fa fa-brain mr-2"></span><span>Deep learning models </span></h3>
                   <p>We develop and train deep learning models such as:</p>
                   <ul class="list-unstyled ul-check primary">
                     <li>Convolutional Neural Network</li>
@@ -384,11 +427,6 @@ form.findme input[type=text]:focus {outline:0;}
                   <p> Advanced optimization methods speed up training and perhaps even get you to a better final value for the cost function. Having a good optimization algorithm can help you to reduce training time from days to just a few hours.</p>
                   <p><a href="#">Read More</a></p>
                 </div>
-              <!--  <div>
-                  <h3 class="d-flex align-items-center"><span class="icon icon-build mr-2"></span><span>Training deep learning systems</span></h3>
-                  <p>Deep learning neural networks learn a mapping function from inputs to outputs. This is achieved by updating the weights of the network in response to the errors the model makes on the training dataset.</p>
-                  <p><a href="#">Read More</a></p>
-                </div>-->
 
               </div>
               <div class="col-lg-3">
@@ -402,11 +440,7 @@ form.findme input[type=text]:focus {outline:0;}
                   <p><a href="#">Read More</a></p>
                 </div>
 
-               <!-- <div>
-                  <h3 class="d-flex align-items-center"><span class="icon icon-build mr-2"></span><span> Improving deep neural networks</span></h3>
-                  <p> Advanced optimization methods speed up training and perhaps even get you to a better final value for the cost function. Having a good optimization algorithm can help you to reduce training time from days to just a few hours.</p>
-                  <p><a href="#">Read More</a></p>
-                </div>-->
+               
               </div>
             </div>
           </div>
@@ -414,11 +448,8 @@ form.findme input[type=text]:focus {outline:0;}
       </div>
     </section>
 
-
-
-
-
-    <section class="site-section testimonial-wrap" id="testimonials-section">
+<!--
+    <section class="site-section testimonial-wrap">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-8 text-center">
@@ -429,14 +460,14 @@ form.findme input[type=text]:focus {outline:0;}
       <div class="slide-one-item home-slider owl-carousel">
           <div>
             <div class="testimonial">
-
+              
               <blockquote class="mb-5">
-                <p>&ldquo;Dive Into Deep Learning team developed the best chatbot for the company I work for.&rdquo;</p>
+                 <p>&ldquo;Dive Into Deep Learning team developed the best chatbot for the company I work for.&rdquo;</p>
               </blockquote>
 
               <figure class="mb-4 d-flex align-items-center justify-content-center">
                 <div><img src="images/person_3.jpg" alt="Image" class="w-50 img-fluid mb-3"></div>
-                <p>Albert Ardlay</p>
+                <p>John Smith</p>
               </figure>
             </div>
           </div>
@@ -448,9 +479,9 @@ form.findme input[type=text]:focus {outline:0;}
               </blockquote>
               <figure class="mb-4 d-flex align-items-center justify-content-center">
                 <div><img src="images/person_2.jpg" alt="Image" class="w-50 img-fluid mb-3"></div>
-                <p>Terry Leagan</p>
+                <p>Chris Aguilar</p>
               </figure>
-
+              
             </div>
           </div>
 
@@ -462,10 +493,10 @@ form.findme input[type=text]:focus {outline:0;}
               </blockquote>
               <figure class="mb-4 d-flex align-items-center justify-content-center">
                 <div><img src="images/person_4.jpg" alt="Image" class="w-50 img-fluid mb-3"></div>
-                <p>Anthony Brower</p>
+                <p>Robert Spears</p>
               </figure>
 
-
+              
             </div>
           </div>
 
@@ -477,7 +508,7 @@ form.findme input[type=text]:focus {outline:0;}
               </blockquote>
               <figure class="mb-4 d-flex align-items-center justify-content-center">
                 <div><img src="images/person_5.jpg" alt="Image" class="w-50 img-fluid mb-3"></div>
-                <p>Elizabeth Cornwell </p>
+                <p>Bruce Rogers</p>
               </figure>
 
             </div>
@@ -485,13 +516,7 @@ form.findme input[type=text]:focus {outline:0;}
 
         </div>
     </section>
-
-
-
-
-  
-
-
+-->
 
     <section class="site-section border-bottom" id="services-section">
       <div class="container">
@@ -502,53 +527,28 @@ form.findme input[type=text]:focus {outline:0;}
         </div>
         <div class="row align-items-stretch">
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
-            <div class="unit-4 d-flex "><!--hovergrey-->
-              <div class="unit-4-icon mr-4"><span class="text-primary icon-laptop2"></span></div>
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4"><span class="text-primary fa fa-brain"></span></div>
               <div>
-                <h3 >Convolutional neural network</h3>
+               <h3 >Convolutional neural network</h3>
                 <p>A convolution neural network is used for image classification problems.</p>
                 <p><a href="#">Learn More</a></p>
               </div>
             </div>
           </div>
-          <!--
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="unit-4 d-flex ">
-              <div class="unit-4-icon mr-4"><span class="text-primary icon-laptop2"></span></div>
-             <div>
-                <h3 >Recurrent Neural Networks</h3>
-                <p>Recurrent Neural Networks (RNN) are very effective for Natural Language Processing and other sequence tasks because they have "memory". They can read inputs (such as words) one at a time, and remember some information/context through the hidden layer activations that get passed from one time-step to the next. This allows a uni-directional RNN to take information from the past to process later inputs. A bidirection RNN can take context from both the past and the future.</p>
-                <p><a href="#">Learn More</a></p>
-              </div>
-            </div>
-          </div>
-         
-
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="unit-4 d-flex ">
-              <div class="unit-4-icon mr-4"><span class="text-primary icon-laptop2"></span></div>
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4"><span class="text-primary fa fa-brain"></span></div>
               <div>
-                <h3 >LSTM</h3>
-                <p>Long short-term memory (LSTM) is an artificial recurrent neural network (RNN) architecture used in the field of deep learning. Unlike standard feedforward neural networks, LSTM has feedback connections.</p>
-                <p><a href="#">Learn More</a></p>
-              </div>
-            </div>
-          </div>
- -->
-
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="unit-4 d-flex "><!--hovergrey-->
-              <div class="unit-4-icon mr-4"><span class="text-primary icon-laptop2"></span></div>
-              <div>
-                <h3 >NLP</h3>
+               <h3 >NLP</h3>
                 <p>It is used Deep Learning and NLP to understand complex language utterances. For example, it is used NLP to translate text from English to French, generate music, stories, etc.</p>
                 <p><a href="#">Learn More</a></p>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="unit-4 d-flex "><!--hovergrey-->
-              <div class="unit-4-icon mr-4"><span class="text-primary icon-laptop2"></span></div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4"><span class="text-primary icon-cloud"></span></div>
               <div>
                 <h3 >Deep learning on the Cloud</h3>
                 <p>Creating and training faster deep learning models on the Cloud.</p>
@@ -556,39 +556,33 @@ form.findme input[type=text]:focus {outline:0;}
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="500">
-            <div class="unit-4 d-flex "><!--hovergrey-->
-              <div class="unit-4-icon mr-4"><span class="text-primary icon-laptop2"></span></div>
+
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4"><span class="text-primary icon-build"></span></div>
               <div>
-                <h3 >Improving deep neural networks</h3>
+                 <h3 >Improving deep neural networks</h3>
                 <p>Improving gradient checking, initialization and regularization for faster training and get better results.</p>
                 <p><a href="#">Learn More</a></p>
               </div>
             </div>
           </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="400">
+            
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="500">
+            
 
         </div>
       </div>
-  <!--
-    </section>
+</div>
 
-
-   <section class="site-section">-->
-
-      <div class="container">
-        <div class="row mb-5 justify-content-center">
-          <div class="col-md-8 text-center">
-            <!--<h2 class="text-black h1 site-section-heading text-center">Our Services</h2>
-            <h3 class="text-primary"><span class="typed-words-services"></span></h3>-->
-          </div>
-        </div>
-      </div>
-
-    <div class="slide-one-item home-slider owl-carousel" data-ride="carousel">   
+<!--Carousel Start-->
+    <div class="slide-one-item home-slider owl-carousel hide-small" data-ride="carousel">   
         <div class="row">
             <figure class="col-md-6 col-lg-4 d-md-inline-block">
                 <a href="images/tensorflow.jpg" class="media-1" data-fancybox="gallery">
-              <img src="images/tensorflow.jpg" alt="Image" class="img-fluid">
+              <img src="images/tensorflow.jpg" alt="TensorFlow Image" class="img-fluid">
               <div class="media-1-content">
                 <h2>TensorFlow</h2>
               </div>
@@ -597,7 +591,7 @@ form.findme input[type=text]:focus {outline:0;}
 
             <figure class="col-md-6 col-lg-4 d-md-inline-block">
              <a href="images/keras.jpg" class="media-1" data-fancybox="gallery">
-              <img src="images/keras.jpg" alt="Image" class="img-fluid">
+              <img src="images/keras.jpg" alt="Keras Image" class="img-fluid">
               <div class="media-1-content">
                 <h2>Keras</h2>
               </div>
@@ -607,7 +601,7 @@ form.findme input[type=text]:focus {outline:0;}
 
             <figure class="col-md-6 col-lg-4 d-md-inline-block">
                  <a href="images/kerastf.jpg" class="media-1" data-fancybox="gallery">
-              <img src="images/kerastf.jpg" alt="Image" class="img-fluid">
+              <img src="images/kerastf.jpg" alt="Keras and TensorFlow Image" class="img-fluid">
               <div class="media-1-content">
                 <h2>TensorFlow + Keras</h2>
               </div>
@@ -618,7 +612,7 @@ form.findme input[type=text]:focus {outline:0;}
         <div class="row">
             <figure class="col-md-4 d-md-inline-block">
                  <a href="images/scikit.jpg" class="media-1" data-fancybox="gallery">
-                  <img src="images/scikit.jpg" alt="Image" class="img-fluid">
+                  <img src="images/scikit.jpg" alt="Scikit Image" class="img-fluid">
                   <div class="media-1-content">
                     <h2>scikit-learn</h2>
                   </div>
@@ -627,7 +621,7 @@ form.findme input[type=text]:focus {outline:0;}
 
             <figure class="col-md-4 d-md-inline-block">
                  <a href="images/pytorch.jpg" class="media-1" data-fancybox="gallery">
-                <img src="images/pytorch.jpg" alt="Image" class="img-fluid">
+                <img src="images/pytorch.jpg" alt="Pytorch Image" class="img-fluid">
                 <div class="media-1-content">
                     <h2>Pytorch</h2>
                 </div>
@@ -636,7 +630,7 @@ form.findme input[type=text]:focus {outline:0;}
 
             <figure class="col-md-4 d-md-inline-block">
                  <a href="images/theano.jpg" class="media-1" data-fancybox="gallery">
-              <img src="images/theano.jpg" alt="Image" class="img-fluid">
+              <img src="images/theano.jpg" alt="Theano Image" class="img-fluid">
               <div class="media-1-content">
                 <h2>Theano</h2>
               </div>
@@ -646,7 +640,7 @@ form.findme input[type=text]:focus {outline:0;}
              <div class="row">
              <figure class="col-md-4 d-md-inline-block">
                  <a href="images/python.jpg" class="media-1" data-fancybox="gallery">
-              <img src="images/python.jpg" alt="Image" class="img-fluid">
+              <img src="images/python.jpg" alt="Python Image" class="img-fluid">
               <div class="media-1-content">
                 <h2>Python</h2>
               </div>
@@ -655,7 +649,7 @@ form.findme input[type=text]:focus {outline:0;}
 
              <figure class="col-md-4 d-md-inline-block">
                  <a href="images/pandas.jpg" class="media-1" data-fancybox="gallery">
-              <img src="images/pandas.jpg" alt="Image" class="img-fluid">
+              <img src="images/pandas.jpg" alt="Pandas Image" class="img-fluid">
               <div class="media-1-content">
                 <h2>Pandas</h2>
               </div>
@@ -664,7 +658,7 @@ form.findme input[type=text]:focus {outline:0;}
 
              <figure class="col-md-4 d-md-inline-block">
                  <a href="images/numpy.jpg" class="media-1" data-fancybox="gallery">
-              <img src="images/numpy.jpg" alt="Image" class="img-fluid">
+              <img src="images/numpy.jpg" alt="Numpy Image" class="img-fluid">
               <div class="media-1-content">
                 <h2>NumPy</h2>
               </div>
@@ -675,7 +669,7 @@ form.findme input[type=text]:focus {outline:0;}
             <div class="row">
              <figure class="col-md-4 d-md-inline-block">
                  <a href="images/scipy.jpg" class="media-1" data-fancybox="gallery" >
-              <img src="images/scipy.jpg" alt="Image" class="img-fluid">
+              <img src="images/scipy.jpg" alt="Scipy Image" class="img-fluid">
               <div class="media-1-content">
                 <h2>SciPy</h2>
               </div>
@@ -683,7 +677,7 @@ form.findme input[type=text]:focus {outline:0;}
             </figure>
             <figure class="col-md-4 d-md-inline-block">
                  <a href="images/googlecloud.jpg" class="media-1" data-fancybox="gallery">
-                <img src="images/googlecloud.jpg" alt="Image" class="img-fluid">
+                <img src="images/googlecloud.jpg" alt="Google Cloud Image" class="img-fluid">
                 <div class="media-1-content">
                     <h2>Google Cloud</h2>
                 </div>
@@ -692,7 +686,144 @@ form.findme input[type=text]:focus {outline:0;}
 
             <figure class="col-md-4 d-md-inline-block">
                  <a href="images/aws.jpg" class="media-1" data-fancybox="gallery">
-              <img src="images/aws.jpg" alt="Image" class="img-fluid">
+              <img src="images/aws.jpg" alt="AWS Image" class="img-fluid">
+              <div class="media-1-content">
+                <h2>AWS</h2>
+              </div>
+            </a>
+            </figure>
+            </div>
+     </div>
+<!--Carousel end-->
+
+<!--Carousel mobile start -->
+<div class="slide-one-item home-slider owl-carousel hide-medium hide-large" data-ride="carousel">   
+        <div class="row">
+            <figure class="col-md-6 col-lg-4 d-md-inline-block">
+                <a href="images/tensorflow.jpg" class="media-1" data-fancybox="gallery">
+              <img src="images/tensorflow.jpg" alt="TensorFlow Image" class="img-fluid">
+              <div class="media-1-content">
+                <h2>TensorFlow</h2>
+              </div>
+            </a>
+         </figure>
+        </div>
+
+        <div class="row">
+            <figure class="col-md-6 col-lg-4 d-md-inline-block">
+             <a href="images/keras.jpg" class="media-1" data-fancybox="gallery">
+              <img src="images/keras.jpg" alt="Keras Image" class="img-fluid">
+              <div class="media-1-content">
+                <h2>Keras</h2>
+              </div>
+              </a>
+            </figure>
+        </div>
+
+        <div class="row">
+
+            <figure class="col-md-6 col-lg-4 d-md-inline-block">
+                 <a href="images/kerastf.jpg" class="media-1" data-fancybox="gallery">
+              <img src="images/kerastf.jpg" alt="Keras and TensorFlow Image" class="img-fluid">
+              <div class="media-1-content">
+                <h2>TensorFlow + Keras</h2>
+              </div>
+                </a>
+             </figure>   
+        </div>
+
+        <div class="row">
+            <figure class="col-md-4 d-md-inline-block">
+                 <a href="images/scikit.jpg" class="media-1" data-fancybox="gallery">
+                  <img src="images/scikit.jpg" alt="Scikit Image" class="img-fluid">
+                  <div class="media-1-content">
+                    <h2>scikit-learn</h2>
+                  </div>
+            </a>
+            </figure>
+        </div>
+
+        <div class="row">
+            <figure class="col-md-4 d-md-inline-block">
+                 <a href="images/pytorch.jpg" class="media-1" data-fancybox="gallery">
+                <img src="images/pytorch.jpg" alt="Pytorch Image" class="img-fluid">
+                <div class="media-1-content">
+                    <h2>Pytorch</h2>
+                </div>
+                </a>
+            </figure>
+        </div>
+
+        <div class="row">
+            <figure class="col-md-4 d-md-inline-block">
+                 <a href="images/theano.jpg" class="media-1" data-fancybox="gallery">
+              <img src="images/theano.jpg" alt="Theano Image" class="img-fluid">
+              <div class="media-1-content">
+                <h2>Theano</h2>
+              </div>
+            </a>
+            </figure>
+            </div>
+
+             <div class="row">
+             <figure class="col-md-4 d-md-inline-block">
+                 <a href="images/python.jpg" class="media-1" data-fancybox="gallery">
+              <img src="images/python.jpg" alt="Python Image" class="img-fluid">
+              <div class="media-1-content">
+                <h2>Python</h2>
+              </div>
+            </a>
+            </figure>
+        </div>
+
+        <div class="row">
+             <figure class="col-md-4 d-md-inline-block">
+                 <a href="images/pandas.jpg" class="media-1" data-fancybox="gallery">
+              <img src="images/pandas.jpg" alt="Pandas Image" class="img-fluid">
+              <div class="media-1-content">
+                <h2>Pandas</h2>
+              </div>
+            </a>
+            </figure>
+        </div>
+
+        <div class="row">
+             <figure class="col-md-4 d-md-inline-block">
+                 <a href="images/numpy.jpg" class="media-1" data-fancybox="gallery">
+              <img src="images/numpy.jpg" alt="Numpy Image" class="img-fluid">
+              <div class="media-1-content">
+                <h2>NumPy</h2>
+              </div>
+            </a>
+            </figure>
+            </div>
+
+            <div class="row">
+             <figure class="col-md-4 d-md-inline-block">
+                 <a href="images/scipy.jpg" class="media-1" data-fancybox="gallery" >
+              <img src="images/scipy.jpg" alt="Scipy Image" class="img-fluid">
+              <div class="media-1-content">
+                <h2>SciPy</h2>
+              </div>
+            </a>
+            </figure>
+        </div>
+
+        <div class="row">
+            <figure class="col-md-4 d-md-inline-block">
+                 <a href="images/googlecloud.jpg" class="media-1" data-fancybox="gallery">
+                <img src="images/googlecloud.jpg" alt="Google Cloud Image" class="img-fluid">
+                <div class="media-1-content">
+                    <h2>Google Cloud</h2>
+                </div>
+                </a>
+            </figure>
+        </div>
+
+        <div class="row">
+            <figure class="col-md-4 d-md-inline-block">
+                 <a href="images/aws.jpg" class="media-1" data-fancybox="gallery">
+              <img src="images/aws.jpg" alt="AWS Image" class="img-fluid">
               <div class="media-1-content">
                 <h2>AWS</h2>
               </div>
@@ -701,12 +832,9 @@ form.findme input[type=text]:focus {outline:0;}
             </div>
 
      </div>
-
-<!--/.Carousel Wrapper-->
+<!--Carousel mobile end-->
+</div>
     </section>
-    
-
-
 
 
 
@@ -714,9 +842,9 @@ form.findme input[type=text]:focus {outline:0;}
     <div class="site-section" id="about-section">
       <div class="container">
         <div class="row mb-5">
-
+          
           <div class="col-md-5 ml-auto mb-5 order-md-2" data-aos="fade">
-            <img src="images/about_3.jpg" alt="Image" class="img-fluid rounded">
+            <img src="images/deep_learning_about_4.jpg" alt="Deep Learning Image" class="img-fluid rounded">
           </div>
           <div class="col-md-6 order-md-1" data-aos="fade">
 
@@ -731,8 +859,8 @@ form.findme input[type=text]:focus {outline:0;}
                 <p class="lead">Dive Into Deep Learning team create, develop, train, optimize deep learning models.</p>
               </div>
               <div class="col-md-12 mb-md-5 mb-0 col-lg-6">
-                <div class="unit-4 "><!--hovergrey-->
-                  <div class="unit-4-icon mr-4 mb-3 "><span class=" text-primary icon-phonelink"></span></div> <!--text-secondary-->
+                <div class="unit-4">
+                  <div class="unit-4-icon mr-4 mb-3"><span class="text-primary fa fa-brain"></span></div>
                   <div>
                     <h3 >Deep Learning Specialties</h3>
                     <p>Create, develop, train and optimize different types of deep learning models.</p>
@@ -741,8 +869,8 @@ form.findme input[type=text]:focus {outline:0;}
                 </div>
               </div>
               <div class="col-md-12 mb-md-5 mb-0 col-lg-6">
-                <div class="unit-4 "><!--hovergrey-->
-                  <div class="unit-4-icon mr-4 mb-3"><span class=" text-primary  icon-build "></span></div> <!--text-secondary-->
+                <div class="unit-4">
+                  <div class="unit-4-icon mr-4 mb-3"><span class="text-primary icon-build"></span></div>
                   <div>
                     <h3 >Improving deep learning models</h3>
                     <p>Improve deep learning models using different techniques such as changing hyperparameters, improve training data, etc.</p>
@@ -752,10 +880,13 @@ form.findme input[type=text]:focus {outline:0;}
               </div>
             </div>
           </div>
-
+          
         </div>
       </div>
     </div>
+  
+    
+
 
 
     <div class="site-section border-bottom" id="team-section">
@@ -765,21 +896,45 @@ form.findme input[type=text]:focus {outline:0;}
             <h2 class="text-black h1 site-section-heading">Our Team</h2>
           </div>
         </div>
-          <div  data-aos="fade" data-aos-delay="200">
+        <div class="row">
+          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
             <div class="person text-center">
-              <img src="images/logo.jpg" alt="Image" >
+              <img src="" alt="" class="img-fluid rounded-circle w-50 mb-5">
+              <h3></h3>
+              <p class="position text-muted"></p>
+              <p class="mb-4"></p>
+              <ul class="ul-social-circle">
+              
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
+            <div class="person text-center">
+              <img src="images/dive_into_deep_learning_logo_team.jpg" alt="Dive Into Deep Learning Image" class="img-fluid rounded-circle w-50 mb-5">
               <h3>Yazmin Villegas</h3>
-              <p class="position text-muted">Deep Learning engineer</p>
+              <p class="position text-muted">Deep Learning Engineer</p>
               <p class="mb-4">Ph.D. Yazmin Villegas is a deep learning engineer. She also received a Diploma in Six Sigma Green Belt from Arizona State University in 2009. She has a Python for Everybody Specialization from the University of Michigan in 2019, a Deep Learning Specialization and a Tensorflow in Practice Specialization from deeplearning.ai in 2019.</p>
               <ul class="ul-social-circle">
-                <li><a href="https://github.com/aisolutionsanddeeplearning/"><span class="icon-github"></span></a></li>
+                <li><a href="https://github.com/diveintodeeplearning-villegas-portfolio/"><span class="icon-github"></span></a></li>
                 <li><a href="https://www.linkedin.com/in/yazmin-v-52548a183/"><span class="icon-linkedin"></span></a></li>
               </ul>
             </div>
           </div>
+          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="300">
+            <div class="person text-center">
+              <img src="" alt="" class="img-fluid rounded-circle w-50 mb-5">
+              <h3></h3>
+              <p class="position text-muted"></p>
+              <p class="mb-4"></p>
+              <ul class="ul-social-circle">
+                
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
 
-    <div class="site-section border-bottom" id="certificates-section">
+<div class="site-section " id="certificates-section">
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center">
@@ -787,11 +942,12 @@ form.findme input[type=text]:focus {outline:0;}
           </div>
         </div>
      
-    <div class="slide-one-item home-slider owl-carousel" data-ride="carousel">   
+<!--Carousel start-->
+    <div class="slide-one-item home-slider owl-carousel hide-small" data-ride="carousel">   
         <div class="row">
             <figure class="col-md-6 col-lg-4 d-md-inline-block">
                 <a href="https://www.coursera.org/account/accomplishments/specialization/3KFKTJ3BFML8" class="media-1">
-              <img src="images/deeplearningai.jpg" alt="Image" class="img-fluid">
+              <img src="images/deeplearningai.jpg" alt="Deep Learning Image" class="img-fluid">
               <div class="media-1-content">
                 <h2>deeplearning.ai</h2>
                 <span class="category">Deep Learning Specialization</span>
@@ -801,7 +957,7 @@ form.findme input[type=text]:focus {outline:0;}
 
             <figure class="col-md-6 col-lg-4 d-md-inline-block">
              <a href="https://www.coursera.org/account/accomplishments/specialization/MWVGN4NTJH4S" class="media-1">
-              <img src="images/deeplearningai.jpg" alt="Image" class="img-fluid">
+              <img src="images/deeplearningai.jpg" alt="Deep Learning Image" class="img-fluid">
               <div class="media-1-content">
                 <h2>deeplearning.ai</h2>
                 <span class="category">TensorFlow in Practice Specialization</span>
@@ -812,7 +968,7 @@ form.findme input[type=text]:focus {outline:0;}
 
             <figure class="col-md-6 col-lg-4 d-md-inline-block">
                  <a href="https://www.coursera.org/account/accomplishments/verify/8A9G7J6D6UV8" class="media-1">
-              <img src="images/deeplearningai.jpg" alt="Image" class="img-fluid">
+              <img src="images/deeplearningai.jpg" alt="Deep Learning Image" class="img-fluid">
               <div class="media-1-content">
                 <h2>deeplearning.ai</h2>
                 <span class="category">AI For Everyone</span>
@@ -824,7 +980,7 @@ form.findme input[type=text]:focus {outline:0;}
         <div class="row">
             <figure class="col-md-4 d-md-inline-block">
                  <a href="https://www.coursera.org/account/accomplishments/specialization/DPX7MCV7V2FC" class="media-1">
-                  <img src="images/umich.jpg" alt="Image" class="img-fluid">
+                  <img src="images/umich.jpg" alt="Deep Learning Image" class="img-fluid">
                   <div class="media-1-content">
                     <h2>University of Michigan</h2>
                     <span class="category">Python for Everybody</span>
@@ -834,7 +990,7 @@ form.findme input[type=text]:focus {outline:0;}
 
             <figure class="col-md-4 d-md-inline-block">
                  <a href="https://www.coursera.org/account/accomplishments/specialization/WXHADK9JH4Y7" class="media-1" >
-                <img src="images/umich.jpg" alt="Image" class="img-fluid">
+                <img src="images/umich.jpg" alt="Deep Learning Image" class="img-fluid">
                 <div class="media-1-content">
                     <h2>University of Michigan</h2>
                     <span class="category">Applied Data Science with Python</span>
@@ -844,7 +1000,7 @@ form.findme input[type=text]:focus {outline:0;}
 
             <figure class="col-md-4 d-md-inline-block">
                  <a href="https://www.coursera.org/account/accomplishments/specialization/7TJDMQ75BRR3" class="media-1" >
-              <img src="images/umich.jpg" alt="Image" class="img-fluid">
+              <img src="images/umich.jpg" alt="Deep Learning Image" class="img-fluid">
               <div class="media-1-content">
                 <h2>University of Michigan</h2>
                 <span class="category">Web Applications for Everybody</span>
@@ -853,11 +1009,93 @@ form.findme input[type=text]:focus {outline:0;}
             </figure>
      </div>
 </div>
-<!--/.Carousel Wrapper-->
-    </div>
-    </div>
-   
+<!--/.Carousel Wrapper -->
+<!--Carousel Wrapper mobile start-->
 
+ <div class="slide-one-item home-slider owl-carousel hide-large hide-medium" data-ride="carousel">   
+        <div class="row">
+            <figure class="col-md-6 col-lg-4 d-md-inline-block">
+                <a href="https://www.coursera.org/account/accomplishments/specialization/3KFKTJ3BFML8" class="media-1">
+              <img src="images/deeplearningai.jpg" alt="Deep Learning Image" class="img-fluid">
+              <div class="media-1-content">
+                <h2>deeplearning.ai</h2>
+                <span class="category">Deep Learning Specialization</span>
+              </div>
+            </a>
+         </figure>
+        </div>
+
+        <div class="row">
+            <figure class="col-md-6 col-lg-4 d-md-inline-block">
+             <a href="https://www.coursera.org/account/accomplishments/specialization/MWVGN4NTJH4S" class="media-1">
+              <img src="images/deeplearningai.jpg" alt="Deep Learning Image" class="img-fluid">
+              <div class="media-1-content">
+                <h2>deeplearning.ai</h2>
+                <span class="category">TensorFlow in Practice Specialization</span>
+              </div>
+              </a>
+            </figure>
+         </div>
+        
+        <div class="row">
+            <figure class="col-md-6 col-lg-4 d-md-inline-block">
+                 <a href="https://www.coursera.org/account/accomplishments/verify/8A9G7J6D6UV8" class="media-1">
+              <img src="images/deeplearningai.jpg" alt="Deep Learning Image" class="img-fluid">
+              <div class="media-1-content">
+                <h2>deeplearning.ai</h2>
+                <span class="category">AI For Everyone</span>
+              </div>
+                </a>
+             </figure>   
+        </div>
+
+        <div class="row">
+            <figure class="col-md-4 d-md-inline-block">
+                 <a href="https://www.coursera.org/account/accomplishments/specialization/DPX7MCV7V2FC" class="media-1">
+                  <img src="images/umich.jpg" alt="Deep Learning Image" class="img-fluid">
+                  <div class="media-1-content">
+                    <h2>University of Michigan</h2>
+                    <span class="category">Python for Everybody</span>
+                  </div>
+            </a>
+            </figure>
+         </div>
+        
+        <div class="row">
+            <figure class="col-md-4 d-md-inline-block">
+                 <a href="https://www.coursera.org/account/accomplishments/specialization/WXHADK9JH4Y7" class="media-1" >
+                <img src="images/umich.jpg" alt="Deep Learning Image" class="img-fluid">
+                <div class="media-1-content">
+                    <h2>University of Michigan</h2>
+                    <span class="category">Applied Data Science with Python</span>
+                </div>
+                </a>
+            </figure>
+         </div>
+        
+        <div class="row">
+            <figure class="col-md-4 d-md-inline-block">
+                 <a href="https://www.coursera.org/account/accomplishments/specialization/7TJDMQ75BRR3" class="media-1" >
+              <img src="images/umich.jpg" alt="Deep Learning Image" class="img-fluid">
+              <div class="media-1-content">
+                <h2>University of Michigan</h2>
+                <span class="category">Web Applications for Everybody</span>
+              </div>
+            </a>
+            </figure>
+     </div>
+</div>
+<!--/.Carousel Wrapper mobile end-->
+    </div>
+    </div>
+ 
+    </div>
+
+    
+
+
+   
+    
    <section class="site-section" id="blog-section">
       <div class="container">
         <div class="row justify-content-center mb-5">
@@ -865,34 +1103,36 @@ form.findme input[type=text]:focus {outline:0;}
             <h2 class="text-black h1 site-section-heading text-center"> Latest Blog</h2>
           </div>
         </div>
-        <div class="slide-one-item home-slider owl-carousel" data-ride="carousel">   
+
+<!--Carousel start-->
+        <div class="slide-one-item home-slider owl-carousel hide-small" data-ride="carousel">   
         
         <div class="row">
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
             <div class="h-entry">
-              <a href="blog1.html"><img src="images/img_11.jpg" alt="Image" class="img-fluid"></a>
-              <h2 class="font-size-regular"><a href="blog1.html">Generative Adversarial Networks to make 8-bit Pixel art</a></h2>
+              <a href="/dl-blogs/blog1.html"><img src="images/artificial_intelligence.jpg" alt="Artificial Intelligence" class="img-fluid"></a>
+              <h2 class="font-size-regular"><a href="/dl-blogs/blog1.html">Generative Adversarial Networks to make 8-bit Pixel art</a></h2>
               <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 8, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
               <p>Generative models are deep learning models that are able to create data such as photos, movies or music by itself.</p>
-              <p><a href="blog1.html">Continue Reading...</a></p>
+              <p><a href="/dl-blogs/blog1.html">Continue Reading...</a></p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
             <div class="h-entry">
-              <a href="blog2.html"><img src="images/img_55.jpg" alt="Image" class="img-fluid"></a>
-              <h2 class="font-size-regular"><a href="blog2.html">How DCGANs work</a></h2>
+              <a href="/dl-blogs/blog2.html"><img src="images/face_recognition.jpg" alt="Face recognition" class="img-fluid"></a>
+              <h2 class="font-size-regular"><a href="/dl-blogs/blog2.html">How DCGANs work</a></h2>
               <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 8, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
               <p>To build a DCGAN, you create two deep neural networks that will fight against each other. So, these deep neural networks will fight endlessly to become stronger. </p>
-              <p><a href="blog2.html">Continue Reading...</a></p>
+              <p><a href="/dl-blogs/blog2.html">Continue Reading...</a></p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
             <div class="h-entry">
-              <a href="blog3.html"><img src="images/img_66.jpg" alt="Image" class="img-fluid"></a>
-              <h2 class="font-size-regular"><a href="blog3.html">DCGAN for Video games</a></h2>
+              <a href="/dl-blogs/blog3.html"><img src="images/deep_learning_1.jpg" alt="Deep Learning" class="img-fluid"></a>
+              <h2 class="font-size-regular"><a href="/dl-blogs/blog3.html">DCGAN for Video games</a></h2>
               <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 8, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
               <p>DCGAN can be used to generate new artwork for old video games. In this tutorial, we are going to build a DCGAN to generate screenshots of imaginary video games for Nintendo Entertainment System based on screenshots of real-old games.</p>
-              <p><a href="blog3.html">Continue Reading...</a></p>
+              <p><a href="/dl-blogs/blog3.html">Continue Reading...</a></p>
             </div>
           </div>
 
@@ -901,29 +1141,29 @@ form.findme input[type=text]:focus {outline:0;}
         <div class="row">
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
             <div class="h-entry">
-              <a href="blog4.html"><img src="images/img_77.jpg" alt="Image" class="img-fluid"></a>
-              <h2 class="font-size-regular"><a href="blog4.html">12 Amazing Deep Learning breakthroughs</a></h2>
+              <a href="/dl-blogs/blog4.html"><img src="images/machine_learning.jpg" alt="Machine Learning" class="img-fluid"></a>
+              <h2 class="font-size-regular"><a href="/dl-blogs/blog4.html">12 Amazing Deep Learning breakthroughs</a></h2>
               <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 8, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
               <p>The last year many AI engineers aimed to create a real artificial intelligence system. A real machine that thinks is what every AI geek wants. Machine learning is the most successful application of artificial intelligence. For example, machine learning is able to win a human Go player.</p>
-              <p><a href="blog4.html">Continue Reading...</a></p>
+              <p><a href="/dl-blogs/blog4.html">Continue Reading...</a></p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
             <div class="h-entry">
-              <a href="blog5.html"><img src="images/img_88.jpg" alt="Image" class="img-fluid"></a>
-              <h2 class="font-size-regular"><a href="blog5.html">Deep learning and convolutional neural networks</a></h2>
+              <a href="/dl-blogs/blog5.html"><img src="images/deep_learning_3.jpg" alt="Deep Learning" class="img-fluid"></a>
+              <h2 class="font-size-regular"><a href="/dl-blogs/blog5.html">Deep learning and convolutional neural networks</a></h2>
               <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 18, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
               <p>In this article, you will learn how to create your convolutional neural network (ConvNet) for recognizing objects in images. In fact, Google Photos uses deep learning to search your photos based on what is in the picture. </p>
-              <p><a href="blog5.html">Continue Reading...</a></p>
+              <p><a href="/dl-blogs/blog5.html">Continue Reading...</a></p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
             <div class="h-entry">
-              <a href="blog6.html"><img src="images/img_111.jpg" alt="Image" class="img-fluid"></a>
-              <h2 class="font-size-regular"><a href="blog6.html">Emotion AI</a></h2>
+              <a href="/dl-blogs/blog6.html"><img src="images/artificial_intelligence_2.jpg" alt="Artificial Intelligence" class="img-fluid"></a>
+              <h2 class="font-size-regular"><a href="/dl-blogs/blog6.html">Emotion AI</a></h2>
               <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 18, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
               <p>Nowadays, Artificial Intelligence can be used for making our electronic devices more personal. AI can be used for many things such as simplify the daily task and increase productivity. Emotion AI (or affective computing) is a new technology to make electronic devices understand our moods. </p>
-              <p><a href="blog6.html">Continue Reading...</a></p>
+              <p><a href="/dl-blogs/blog6.html">Continue Reading...</a></p>
             </div>
           </div>
 
@@ -931,9 +1171,92 @@ form.findme input[type=text]:focus {outline:0;}
 
       </div>
     </div>
+
+<!--Carousel End-->
+
+<!--Carousel mobile start-->
+        <div class="slide-one-item home-slider owl-carousel hide-large hide-medium" data-ride="carousel">   
+        
+        <div class="row">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
+            <div class="h-entry">
+              <a href="/dl-blogs/blog1.html"><img src="images/artificial_intelligence.jpg" alt="Artificial Intelligence" class="img-fluid"></a>
+              <h2 class="font-size-regular"><a href="/dl-blogs/blog1.html">Generative Adversarial Networks to make 8-bit Pixel art</a></h2>
+              <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 8, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
+              <p>Generative models are deep learning models that are able to create data such as photos, movies or music by itself.</p>
+              <p><a href="/dl-blogs/blog1.html">Continue Reading...</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
+            <div class="h-entry">
+              <a href="/dl-blogs/blog2.html"><img src="images/face_recognition.jpg" alt="Face recognition" class="img-fluid"></a>
+              <h2 class="font-size-regular"><a href="/dl-blogs/blog2.html">How DCGANs work</a></h2>
+              <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 8, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
+              <p>To build a DCGAN, you create two deep neural networks that will fight against each other. So, these deep neural networks will fight endlessly to become stronger. </p>
+              <p><a href="/dl-blogs/blog2.html">Continue Reading...</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
+            <div class="h-entry">
+              <a href="/dl-blogs/blog3.html"><img src="images/deep_learning_1.jpg" alt="Deep Learning" class="img-fluid"></a>
+              <h2 class="font-size-regular"><a href="/dl-blogs/blog3.html">DCGAN for Video games</a></h2>
+              <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 8, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
+              <p>DCGAN can be used to generate new artwork for old video games. In this tutorial, we are going to build a DCGAN to generate screenshots of imaginary video games for Nintendo Entertainment System based on screenshots of real-old games.</p>
+              <p><a href="/dl-blogs/blog3.html">Continue Reading...</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
+            <div class="h-entry">
+              <a href="/dl-blogs/blog4.html"><img src="images/machine_learning.jpg" alt="Machine Learning" class="img-fluid"></a>
+              <h2 class="font-size-regular"><a href="/dl-blogs/blog4.html">12 Amazing Deep Learning breakthroughs</a></h2>
+              <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 8, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
+              <p>The last year many AI engineers aimed to create a real artificial intelligence system. A real machine that thinks is what every AI geek wants. Machine learning is the most successful application of artificial intelligence. For example, machine learning is able to win a human Go player.</p>
+              <p><a href="/dl-blogs/blog4.html">Continue Reading...</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
+            <div class="h-entry">
+              <a href="/dl-blogs/blog5.html"><img src="images/deep_learning_3.jpg" alt="Deep Learning" class="img-fluid"></a>
+              <h2 class="font-size-regular"><a href="/dl-blogs/blog5.html">Deep learning and convolutional neural networks</a></h2>
+              <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 18, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
+              <p>In this article, you will learn how to create your convolutional neural network (ConvNet) for recognizing objects in images. In fact, Google Photos uses deep learning to search your photos based on what is in the picture. </p>
+              <p><a href="/dl-blogs/blog5.html">Continue Reading...</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
+            <div class="h-entry">
+              <a href="/dl-blogs/blog6.html"><img src="images/artificial_intelligence_2.jpg" alt="Artificial Intelligence" class="img-fluid"></a>
+              <h2 class="font-size-regular"><a href="/dl-blogs/blog6.html">Emotion AI</a></h2>
+              <div class="meta mb-4">Yazmin Villegas <span class="mx-2">&bullet;</span> April 18, 2020<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
+              <p>Nowadays, Artificial Intelligence can be used for making our electronic devices more personal. AI can be used for many things such as simplify the daily task and increase productivity. Emotion AI (or affective computing) is a new technology to make electronic devices understand our moods. </p>
+              <p><a href="/dl-blogs/blog6.html">Continue Reading...</a></p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+<!--Carousel mobile end-->
     </section>
 
 
+   
 
 
     <section class="site-section bg-light" id="contact-section">
@@ -946,43 +1269,43 @@ form.findme input[type=text]:focus {outline:0;}
         <div class="row">
           <div class="col-md-7 mb-5">
 
+            
 
-
-            <form name="contact-form" method="post" action="add_and_send_message.php" class="p-5 bg-white" id="contact-form" >
-
-              <h2 class="h4 text-black mb-5">Contact Form</h2>
+            <form action="add_and_send_message.php" class="p-5 bg-white" name="contact-form" method="post"  id="contact-form">
+              
+              <h2 class="h4 text-black mb-5">Contact Form</h2> 
 
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">
-                  <label class="text-black" for="first_name">First Name</label>
-                  <input type="text" name="first_name" id="first_name" class="form-control" required>
+                  <label class="text-black" for="fname">First Name</label>
+                  <input type="text" id="first_name" name="first_name" class="form-control">
                 </div>
                 <div class="col-md-6">
-                  <label class="text-black" for="last_name">Last Name</label>
-                  <input type="text" name="last_name" id="last_name" class="form-control" required>
+                  <label class="text-black" for="lname">Last Name</label>
+                  <input type="text" id="last_name" name="last_name"  class="form-control">
                 </div>
               </div>
 
               <div class="row form-group">
-
+                
                 <div class="col-md-12">
-                  <label class="text-black" for="email">Email</label>
-                  <input type="email" name="email" id="email" class="form-control" required>
+                  <label class="text-black" for="email">Email</label> 
+                  <input type="email" id="email" name="email" class="form-control">
                 </div>
               </div>
 
               <div class="row form-group">
-
+                
                 <div class="col-md-12">
-                  <label class="text-black" for="subject">Subject</label>
-                  <input type="text" name="subject" id="subject" class="form-control" required>
+                  <label class="text-black" for="subject">Subject</label> 
+                  <input type="text" id="subject" name="subject" class="form-control">
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <label class="text-black" for="message">Message</label>
-                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..." required></textarea>
+                  <label class="text-black" for="message">Message</label> 
+                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..."></textarea>
                 </div>
               </div>
 
@@ -992,136 +1315,31 @@ form.findme input[type=text]:focus {outline:0;}
                 </div>
               </div>
 
+            
             <span class="text-primary" id="subContactMessage">Your message has been successfully sent.<br><span class="text-black"> We will contact you very soon!</span></span>
             <span class="text-red" id="failContactMessage">Please enter a valid email address</span>
              
-
             </form>
           </div>
           <div class="col-md-5">
-
+            
             <div class="p-4 mb-3 bg-white">
-              <p class="mb-0 font-weight-bold">Address</p>
-              <p class="mb-4">Monterrey,Mexico</p>
-
 
               <p class="mb-0 font-weight-bold">Email Address</p>
               <p class="mb-0"><a href="#">info@diveintodeeplearning.com</a></p>
 
             </div>
- <!-- Map Area Start -->
-    <div class="map-area section-padding-0-80">
-        <div class="container">
-            <div id="map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28772.770334286757!2d-100.29717165869341!3d25.65152100774095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662bfcee61c0709%3A0xab5b4cc298e6fe08!2sTecnol%C3%B3gico%20de%20Monterrey!5e0!3m2!1ses-419!2smx!4v1586972808757!5m2!1ses-419!2smx" allowfullscreen ></iframe>
-            </div>
-        </div>
-    </div>
-    <!-- Map Area End -->
-
-
-<!--
-               
-    <div id="map"></div>
-    <script>
-// Initialize and add the map
-function initMap() {
-  // The location of Uluru
-  var uluru = {lat: 25.652029, lng: -100.289658};
-  // The map, centered at Uluru
-  var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 4, center: uluru});
-  // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({position: uluru, map: map});
-}
-    </script>
-   
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA79SK_xVAXuqVqieg3fqixdXdTaAuFS8A&callback=initMap">
-    </script>
--->
+            
           </div>
         </div>
       </div>
     </section>
 
+<section id="subscribe-section"></section>
+<section id="newsletter-section"></section>
 
-    <a href="#" class=" bg-primary py-5 d-block"> <!-- bg-dark-->
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md10"><h2 class="text-white">Let's Get Started</h2></div> <!-- text-primary-->
-        </div>
-      </div>
-    </a>
-  
-
-
-   <section  id="newsletter-section">
-    <footer class="site-footer bg-dark">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9">
-            <div class="row">
-              <div class="col-md-5">
-                <h2 class="footer-heading mb-4">About Us</h2>
-                <p>Dive Into Deep Learning team can help you with your AI projects.</p>
-              </div>
-              <div class="col-md-3 ml-auto">
-                <h2 class="footer-heading mb-4">Features</h2>
-                <ul class="list-unstyled">
-                  <li><a href="#about-section" >About Us</a></li>
-                  <li><a href="#services-section" >Services</a></li>
-                  <li><a href="#testimonials-section" >Testimonials</a></li>
-                  <li><a href="#contact-section" >Contact Us</a></li>
-                </ul>
-              </div>
-              <div class="col-md-3">
-                <h2 class="footer-heading mb-4">Follow Us</h2>
-                <a href="https://github.com/aisolutionsanddeeplearning/" class="pl-0 pr-3"><span class="icon-github"></span></a>
-                <a href="https://www.linkedin.com/in/yazmin-v-52548a183/" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
-            <form  name="email-form" method="post" action="addemail.php" id="email-form"> <!--action="addemail.php" onsubmit="return false"-->
-              <div class="input-group mb-3">
-                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Name" aria-label="Name" aria-describedby="button-addon2" name="name" id="name" required>
-                <input type="email" class="form-control border-secondary text-white bg-transparent" placeholder="Email" aria-label="Email" aria-describedby="button-addon2" name="email" id ="emailnews" required>
-                <div class="input-group-append "  >
-                  <button class="btn btn-primary text-white" onSubmit="funcSubscribe()" type="submit" id="button-addon2" value="Subscribe" name="subscribe">Send </button>
-                   
-                </div>
-                
-              </div>
-             <span class="text-primary" id="subMessage">Thank you!<br><span class="text-white">You're subscribed!</span></span>
-            <span class="text-white" id="failMessage">Please enter a valid email address</span>
-             
-
-
-            </form>
-          </div>
-        </div>
-        <div class="row pt-5 mt-5 text-center">
-          <div class="col-md-12">
-            <div class="border-top pt-5">
-            <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Dive Into Deep Learning <script>document.write(new Date().getFullYear());</script> <!--| AI for everybody with <i class="icon-heart text-danger" aria-hidden="true"></i>--> 
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </footer>
- </section>
-
-
- 
   </div> <!-- .site-wrap -->
-</div>
+
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
@@ -1136,106 +1354,79 @@ function initMap() {
   <script src="js/jquery.fancybox.min.js"></script>
   <script src="js/jquery.sticky.js"></script>
 
-  <script src="js/typed.js"></script>
-            <script>
-            var typed = new Typed('.typed-words', {
-            strings: [" Deep Learning"," Machine Learning"," Artificial Intelligence"],
-            typeSpeed: 80,
-            backSpeed: 80,
-            backDelay: 4000,
-            startDelay: 1000,
-            loop: true,
-            showCursor: true
-            });
-            </script>
+  
+  <script src="js/typed.js"></script></script>
+  
 
-    <script src="js/typed.js"></script>
-            <script>
-            var typed = new Typed('.typed-words-portfolio', {
-            strings: [" Convolutional Neural Network"," Natural Language Processing"],
-            typeSpeed: 80,
-            backSpeed: 80,
-            backDelay: 4000,
-            startDelay: 1000,
-            loop: true,
-            showCursor: true
-            });
-            </script>
+  <script src="js/main.js?<?php echo filemtime('js/main.js');?>"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  
+  <script src="/js/scripts.js"></script>
 
-  <script src="js/main.js"></script>
-
-<script  type="text/javascript">
-// When the user clicks on div, open the popup
-function funcSubscribe() {
- //var message = "<?PHP echo $message ?>"; 
- //   if(message == "success"){
-        // var x = document.getElementById("subMessage");
-          //   x.style.display = "inline-block";
-//} else {
-  //  var f = document.getElementById("failMessage");
-    //    f.style.display = "inline-block";
-//}
-}
-</script>
 <script>
-    var x = document.getElementById("subMessage");
-    x.style.display = "none";
-     
-    var f = document.getElementById("failMessage");
-    f.style.display = "none";
 
-    var cx = document.getElementById("subContactMessage");
+function loadDIDL() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("diveintodl-section").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/diveintodl.txt", true);
+  xhttp.send();
+}
+
+function loadFooter() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("newsletter-section").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/footer.txt", true);
+  xhttp.send();
+}
+
+function loadHome() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("home-section").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/home.txt", true);
+  xhttp.send();
+}
+
+function loadHeader() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("header-section").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/header.txt", true);
+  xhttp.send();
+}
+
+function loadSubscribe() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("subscribe-section").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/subscribe.txt", true);
+  xhttp.send();
+}
+
+
+  var cx = document.getElementById("subContactMessage");
     cx.style.display = "none";
      
     var cf = document.getElementById("failContactMessage");
     cf.style.display = "none";
-</script>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
-<script>
-function validateEmail(email) {
-    var re = /\S+@\S+\.\S+/;
-    return re.test(email);
-}
-
-$email = $("#email-form [name='email']").val();
-
-$(document).ready(function(){
-$("#email-form").on("submit",function(e){
-e.preventDefault();
-if(validateEmail($("#email-form [name='email']").val()))
-{
-    var x = document.getElementById("subMessage");
-    x.style.display = "inline-block";
-
-     var f = document.getElementById("failMessage");
-    f.style.display = "none";
-
-    var sendData = $( this ).serialize();
-
-    $.ajax({
-        type: "POST",
-        url: "addemail.php",
-        data: sendData,
-        success: function(data){
-            $("#contact-form").find("input[type=text], input[type=email]").val("");
-        }
-    });
-}
-else{
-    var f = document.getElementById("failMessage");
-    f.style.display = "inline-block";
-
-     var x = document.getElementById("subMessage");
-    x.style.display = "none";
-}
-});
-});
-
-</script>
-
-<script>
 function validateEmail(email) {
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
@@ -1246,13 +1437,7 @@ $email = $("#contact-form [name='email']").val();
 $(document).ready(function(){
 $("#contact-form").on("submit",function(e){
 e.preventDefault();
-if(validateEmail($("#contact-form [name='email']").val()))
-{
-    var x = document.getElementById("subContactMessage");
-    x.style.display = "inline-block";
 
-     var f = document.getElementById("failContactMessage");
-    f.style.display = "none";
 
     var sendData = $( this ).serialize();
 
@@ -1262,79 +1447,18 @@ if(validateEmail($("#contact-form [name='email']").val()))
         data: sendData,
         success: function(data){
             $("#contact-form").find("input[type=text], input[type=email], textarea").val("");
+              var cx = document.getElementById("subContactMessage");
+                cx.style.display = "inline-block";
         }
     });
 
-
-}
-else{
-    var f = document.getElementById("failContactMessage");
-    f.style.display = "inline-block";
-
-     var x = document.getElementById("subContactMessage");
-    x.style.display = "none";
-}
 });
 });
 
 </script>
 
 
+
+
   </body>
 </html>
-<!--
-<?php
-$user = "b9_25376111"; 
-$password = "Thankyou128"; 
-//$host2 = "mysql:host=sql311.byethost.com;port=3306;dbname=b9_25376111_ais_db"; 
-$host = "sql311.byethost.com"; 
-$dbase = "b9_25376111_ais_db"; 
-$table = "users"; 
-//$servername="sql311.byethost.com";
-
-$name= checkDataInjection($_POST['name']);
-$email= checkDataInjection($_POST['email']);
-$message = "error";
-
-// Create connection
-$conn = new mysqli($host, $user, $password, $dbase);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-
-// Validate email
-if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    //echo("$email is a valid email address");
-    $sql = "INSERT INTO $table (name, email) VALUES ('$name', '$email')";
-
-    if ($conn->query($sql) === TRUE) {
-   // $message= "New record created successfully".' '.$name.' '.$email;
-   $message = "success";
-     //header("Location: #newsletter-section");
-    }
-    else {
-      //$message = "Error: " . $sql . "<br>" . $conn->error;
-      $message = "error";
-     //header("Location: #newsletter-section");
-    }
-
-}
- else {
-    //echo("$email is not a valid email address");
-    $message = "error";
-     //header("Location: #newsletter-section");
-}
-
-
-function checkDataInjection($data){
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-
-$conn->close();
-?>
--->

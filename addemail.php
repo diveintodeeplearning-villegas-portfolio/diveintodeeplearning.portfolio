@@ -35,18 +35,18 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
     if ($conn->query($sql) === TRUE) {
     //$message= "New record created successfully".' '.$name.' '.$email;
      $message = true;
-     header("Location: index.html#newsletter-section");
+     header("Location: thankyou.html");
     }
     else {
     //$message= "Error: " . $sql . "<br>" . $conn->error;
-     header("Location: index.html#newsletter-section");
+     header("Location: index.html");
     }
 
 }
  else {
     //echo("$email is not a valid email address");
     $failure = "$email is not a valid email address";
-     header("Location: index.html#newsletter-section");
+     header("Location: index.html");
 }
 
 

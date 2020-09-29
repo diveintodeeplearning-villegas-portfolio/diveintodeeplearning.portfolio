@@ -1,0 +1,52 @@
+
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <p class="mb-0">
+              <span><strong class="text-white">Email:</strong> <a href="#">info@diveintodeeplearning.com</a></span>
+            </p>
+          </div>
+          <div class="col-md-6 " ><!--class="class="social-media"-->
+            <ul class="social-media">
+              <li><a href="https://github.com/diveintodeeplearning-villegas-portfolio" class="p-2"><span class="icon-github"></span></a></li>
+              <li><a href="https://twitter.com/DiveIntoDL" class="p-2"><span class="icon-twitter"></span></a></li>
+              <li><a href="https://www.instagram.com/diveintodeeplearning/" class="p-2"><span class="icon-instagram"></span></a></li>
+              <li><a href="https://medium.com/@diveintodeeplearning" class="p-2"><span class="icon-medium"></span></a></li>
+              
+              <!--<li><a href="https://www.youtube.com/channel/UCUOhZEbmS6nYlwyHfKo2JRg?view_as=subscriber" class="p-2"><span class="icon-youtube"></span></a></li>-->
+              
+              <li><a href="https://www.linkedin.com/in/yazmin-v-52548a183/" class="p-2"><span class="icon-linkedin"></span></a></li>
+              <li><a href="#" onclick="document.getElementById('popsearch').style.display='block'" class="p-2 hide-small"><span class="icon-search"></span></a></li>
+              <li> 
+<form action="/search.php" method="post" class="p-2 hide-medium hide-large form-group has-search">
+    <span class="fa fa-search  form-control-feedback "></span>
+  <input class="form-control animation-search" type="text" placeholder="Search the site" name="findMe"  id="smallsearch">
+</form>
+</li>
+             
+          <div id="popsearch" class="modal">
+        <span onclick="document.getElementById('popsearch').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <form class="modal-content form-group has-search" action="/search.php" method="post">       
+                  <span class="fa fa-search form-control-feedback "></span>
+                  <input class="form-control" type="text" placeholder="      Search the site" name="findMe"  id="search">
+        </form>
+                   <script>
+    
+// Get the modal
+var modal = document.getElementById('popsearch');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+    </script>
+</div>
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+      

@@ -24,8 +24,8 @@ $table = "comments";
 
 $blog_id= checkDataInjection($_POST['blog_id']);
 $name= checkDataInjection($_POST['name']);
-$email= checkDataInjection($_POST['email']);
-$website= checkDataInjection($_POST['website']);
+$email= $_POST['email'];
+$website= $_POST['website'];
 $message= checkDataInjection($_POST['message']);
 
 
@@ -37,8 +37,10 @@ if ($conn->connect_error) {
 }
 
 
+
+
 // Validate email
-if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+//if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
     //echo("$email is a valid email address");
     $sql = "INSERT INTO $table (blog_id, parent_comment_id, name, email, website, message) VALUES ('$blog_id', '$parent_comment_id', '$name', '$email', '$website', '$message')";
 
@@ -51,13 +53,12 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
     //$message= "Error: " . $sql . "<br>" . $conn->error;
    //  header("Location: index.html#comment-section");
     }
-
-}
- else {
+//}
+ /*else {
     //echo("$email is not a valid email address");
     $failure = "$email is not a valid email address";
      header("Location: index.html#comment-section");
-}
+}*/
 
 
 function checkDataInjection($data){

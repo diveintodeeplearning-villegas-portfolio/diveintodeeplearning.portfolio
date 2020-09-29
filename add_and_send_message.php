@@ -30,7 +30,7 @@ if(mail($toEmail, $subject, $message, $mailHeaders)) {
 echo"<p class='success'>Contact Mail Sent.</p>";
 } else {
 echo"<p class='Error'>Problem in Sending Mail.</p>";
-*/
+
 
 $toEmail = "info.aisolutionsmx@gmail.com";
 $mailHeaders = "From: " . $_POST["first_name"]." ".$_POST["last_name"] . "<". $_POST["mail"] .">\r\n";
@@ -38,6 +38,7 @@ if(mail($toEmail, $_POST["subject"], $_POST["message"], $mailHeaders)) {
 echo"<p class='success'>Contact Mail Sent.</p>";
 } else {
 echo"<p class='Error'>Problem in Sending Mail.</p>";
+*/
 /************************************* Send email **********************************/
 
 // Create connection
@@ -49,7 +50,7 @@ if ($conn->connect_error) {
 
 
 // Validate email
-if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+//if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
     echo("$email is a valid email address");
     $sql = "INSERT INTO $table (first_name, last_name, email, subject, message) VALUES ('$first_name', '$last_name', '$email', '$subject', '$message')";
 
@@ -65,12 +66,12 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
     // header("Location: index.html#contact-section");
     }
 
-}
- else {
-    echo("$email is not a valid email address");
-    $failure = "$email is not a valid email address";
+//}
+ //else {
+  //  echo("$email is not a valid email address");
+    //$failure = "$email is not a valid email address";
     // header("Location: index.html#contact-section");
-}
+//}
 
 
 function checkDataInjection($data){

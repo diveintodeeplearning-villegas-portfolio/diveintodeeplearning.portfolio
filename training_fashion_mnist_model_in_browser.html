@@ -26,120 +26,24 @@
 
     <link rel="stylesheet" href="css/aos.css">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?<?php echo filemtime('css/style.css'); ?>">
     <link rel="stylesheet" href="style.css">
 
     <!-- Load icon library search bar -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <style>
-      div.fashion-section{
-          /*width:800px;
-          height:500px;*/
-          margin: auto;
-          border: 3px solid #32dbc6;
-      }
-      .crop img {
-           margin: -75px 0 0 -100px;
-    }
-      .responsive {
-           width: 100%;
-           height: auto;
-     }
-    </style>
-     <style>
-        /* ------------------------------------------
-[Master Stylesheet]
---------------------------------------------- */
-#map {
-            height: 600px;
-             width: 100%; }
-         @media only screen and (max-width: 767px) {
-        #map {
-             height: 400px; } }
-        #map iframe {
-              width: 100%;
-              height: 100%;
-              border: none !important;
-              border-radius: 10px; }
-/*# sourceMappingURL=style.css.map */
 
-    </style>
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function () {
+                $.get("myScripts.html", function (data) {
+                    $("head").append(data);
+                });
+            });
+    </script>
+   
 
-    <style>
-
-/* Style the search field */
-form.findme input[type=text] {
-  padding: 3px; 
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 80%;
-  background: #f1f1f1;
-  
-}
-
-    /* Style the submit button */
-form.findme button {
-  float: left;
-  width: 20%;
-  padding: 3px;
-  background: #32dbc6;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none; /* Prevent double borders */
-  cursor: pointer;
-  
-}
-
-form.findme button:hover {
-      color: grey; 
-      background:#1ec7b2;
-      //background: rgba(0, 0, 0, 0.1);
-      //opacity:2;
-       
-}
-
-
-/* Style the search field */
-form.findme2 input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid white;
-  float: left;
-  width: 80%;
-  background: #f1f1f1;
-  
-}
-
-    /* Style the submit button */
-form.findme2 button {
-  float: left;
-  width: 20%;
-  padding: 10px;
-  background: #32dbc6;;
-  color: white;
-  font-size: 17px;
-  border: 1px solid white;
-  border-left: none; /* Prevent double borders */
-  cursor: pointer;
-}
-
-form.findme2 button:hover {
-       color: grey; 
-      background:#1ec7b2;
-}
-
-form.findme button:focus {outline:0;}
-form.findme2 button:focus {outline:0;}
-
-form.findme input[type=text]:focus {outline:0;}
-form.findme2 input[type=text]:focus {outline:0;}
-
-    </style>
-
-    <link rel="shortcut icon" type="image/jpg" href="images/ico.jpg" >
+    <link rel="shortcut icon" type="image/jpg" href="images/dive_into_deep_learning_ico.jpg" >
    
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -155,8 +59,9 @@ form.findme2 input[type=text]:focus {outline:0;}
       <div class="site-mobile-menu-body"></div>
     </div>
 
+ <div class="border-bottom top-bar py-2 bg-dark" id="home-section">
+       
 
-    <div class="border-bottom top-bar py-2 bg-dark" id="home-section"> <!--bg-dark-->
       <div class="container">
         <div class="row">
           <div class="col-md-6">
@@ -167,42 +72,58 @@ form.findme2 input[type=text]:focus {outline:0;}
           <div class="col-md-6 " ><!--class="class="social-media"-->
             <ul class="social-media">
               <li><a href="https://github.com/diveintodeeplearning-villegas-portfolio" class="p-2"><span class="icon-github"></span></a></li>
+              <li><a href="https://twitter.com/DiveIntoDL" class="p-2"><span class="icon-twitter"></span></a></li>
+              <li><a href="https://www.instagram.com/diveintodeeplearning/" class="p-2"><span class="icon-instagram"></span></a></li>
+              <li><a href="https://medium.com/@diveintodeeplearning" class="p-2"><span class="icon-medium"></span></a></li>
+              
+              <!--<li><a href="https://www.youtube.com/channel/UCUOhZEbmS6nYlwyHfKo2JRg?view_as=subscriber" class="p-2"><span class="icon-youtube"></span></a></li>-->
+              
               <li><a href="https://www.linkedin.com/in/yazmin-v-52548a183/" class="p-2"><span class="icon-linkedin"></span></a></li>
-              <!--<li><form method="get" action="" > <input type="text" name="search" id="search" value="" /> <input type="submit" name="submit" value="Search" class="no-outline" /> </form></li>-->
-              <!--<li><a href="#" class="p-2"><span class="icon-search"></span></a></li>-->
-              <li><div class="search-bar social-media">
-                  <!--///YOUR FORM/INPUT BOX-->
-            <form class="findme" action="search.php" method="post">
-                <input class="input-text" type="text" name="findMe"  id="search">
-                  <button type="submit"><i class="icon-search"></i></button>
-            </form>
-</div></li>
-                <script>
-                    /*
-                  var defaultText = "";
-                   var searchBox = document.getElementById(""); //default text after load 
-                   searchBox.value = defaultText; //on focus behaviour
-                    searchBox.onfocus = function() { if (this.value == defaultText) {//clear text field 
-                    this.value = ''; } } //on blur behaviour 
-                    searchBox.onblur = function() { if (this.value == "") {//restore default text 
-                    this.value = defaultText; } }
-                    */
-                </script>
+              <li><a href="#" onclick="document.getElementById('popsearch').style.display='block'" class="p-2 hide-small"><span class="icon-search"></span></a></li>
+              <li> 
+<form action="search.php" method="post" class="p-2 hide-medium hide-large form-group has-search">
+    <span class="fa fa-search  form-control-feedback "></span>
+  <input class="form-control animation-search" type="text" placeholder="Search the site" name="findMe"  id="smallsearch">
+</form>
+</li>
+             
+          <div id="popsearch" class="modal">
+        <span onclick="document.getElementById('popsearch').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <form class="modal-content form-group has-search" action="search.php" method="post">       
+                  <span class="fa fa-search form-control-feedback "></span>
+                  <input class="form-control" type="text" placeholder="      Search the site" name="findMe"  id="search">
+        </form>
+                   <script>
+    
+// Get the modal
+var modal = document.getElementById('popsearch');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+    </script>
+</div>
+                
             </ul>
           </div>
         </div>
       </div>
-    </div>
+      
+      
+      </div>
 
     <header class="site-navbar py-4 bg-white js-sticky-header site-navbar-target" role="banner">
 
-      <div class="container">
+       <div class="container">
         <div class="row align-items-center">
-
+          
           <div class="col-11 col-xl-2">
-            <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0"> </a><a href="index.html">
-              <img src="images/logo.jpg" alt="Logo" class="img-fluid"></a></h1>
-           <!--   <img src="images/logo.jpg" alt="Logo" class="img-fluid">-->
+           
+           <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0"> DiveIntoDL<span class="  text-primary" >.</span> </a></h1>
+          
           </div>
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
@@ -220,7 +141,7 @@ form.findme2 input[type=text]:focus {outline:0;}
                     <li><a href="index.html#team-section">Our Team</a></li>
                     <li><a href="index.html#certificates-section">Certificates</a></li>
                   </ul>
-                </li>   
+                </li>
                 <li class="has-children">
                     <a href="#blog-section" class="nav-link">Blog</a>
                     <ul  class="dropdown">
@@ -244,14 +165,7 @@ form.findme2 input[type=text]:focus {outline:0;}
 
 
 
-
-
-   
-
-  
-
-
-    <div class="site-blocks-cover overlay" style="background-image: url(images/hero_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+     <div class="site-blocks-cover " style="background-image: url(images/dive_into_deep_learning_hero_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
 
@@ -259,9 +173,9 @@ form.findme2 input[type=text]:focus {outline:0;}
 
             <div class="row justify-content-center mb-4">
               <div class="col-md-8 text-center">
-                <h1>Dive Into Deep Learning <span class="typed-words"></span></h1>
+                <h1 class="text-primary">Dive Into <span class="typed-words"></span></h1>
                 <p> </p>
-                <p class="lead">Fashion Classifier!</p>
+                <p class="lead text-black">Fashion Classifier!</p>
                 <div><a href="https://github.com/diveintodeeplearning-villegas-portfolio/TensorFlow_Data_and_Deployment/tree/master/TensorFlow-JS/Week%202/Exercise" class="btn btn-primary btn-md"><i class="icon-github fa-3x"></i><br>View source on GitHub</a></div>
                 
             </div>
@@ -322,8 +236,65 @@ form.findme2 input[type=text]:focus {outline:0;}
 </section>
 
 
+  <a href="#subscribe" class=" bg-primary py-5 d-block hide-small" onclick="document.getElementById('popsubscribe').style.display='block'"> <!-- bg-dark-->
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md10"><h2 class="text-white">Let's Get Started</h2></div> <!-- text-primary-->
+        </div>
+      </div>
+    </a>
+
+
+
+    <div id="popsubscribe" class="modal hide-small">
+        <span onclick="document.getElementById('popsubscribe').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <form  class="modal-content " name="email-form2" method="post" action="addemail.php" id="email-form2"> <!--action="addemail.php" onsubmit="return false"-->
+              <h2 class="row justify-content-center">Subscribe </h2>
+              <div class="row form-group">
+                <div class="col-md-4 mb-3 mb-md-0">
+                <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="button-addon2" name="name" id="name2" required>
+                </div>
+               <div class="col-md-5">
+                <input type="email" class="form-control " placeholder="Email" aria-label="Email" aria-describedby="button-addon2" name="email" id ="emailnews2" required>
+               
+                </div>
+               <div class="col-md-2">
+             <button class="btn btn-primary text-white"  onClick="document.getElementById('popsubscribe').style.display='none'" type="submit" id="button-addon2" value="Subscribe" name="subscribe">Subscribe                   </button>
+              </div>
+            </div>
+        </form>
+    </div>
+
+<div id="popsubscribe-small" class="hide-medium hide-large bg-primary py-5 d-block">
+    <form  name="email-form2-small" method="post" action="addemail.php" id="email-form2"> <!--action="addemail.php" onsubmit="return false"-->
+              <h2 class="row justify-content-center text-white">Subscribe </h2>
+              <div class="row form-group">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="button-addon2" name="name" id="name2-small" required>
+                </div>
+               <div class="col-md-5">
+                    <input type="email" class="form-control " placeholder="Email" aria-label="Email" aria-describedby="button-addon2" name="email" id ="emailnews2-small" required>
+               </div>
+               <div class="col-md-2">
+               </div>
+              </div>
+              
+            <div class="row form-group">
+                <div class="col-md-12">
+                  <button class="btn btn-black"  type="submit" id="button-addon2-small" value="Subscribe" name="subscribe">Subscribe </button>
+                  
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+
+
+
+    
    <section  id="newsletter-section">
-    <footer class="site-footer bg-dark">
+     <footer class="site-footer bg-dark">
       <div class="container">
         <div class="row">
           <div class="col-md-9">
@@ -335,15 +306,19 @@ form.findme2 input[type=text]:focus {outline:0;}
               <div class="col-md-3 ml-auto">
                 <h2 class="footer-heading mb-4">Features</h2>
                 <ul class="list-unstyled">
-                  <li><a href="#about-section" >About Us</a></li>
-                  <li><a href="#services-section" >Services</a></li>
-                  <li><a href="#testimonials-section" >Testimonials</a></li>
-                  <li><a href="#contact-section" >Contact Us</a></li>
+                  <li><a href="index.html#about-section" >About Us</a></li>
+                  <li><a href="index.html#services-section" >Services</a></li>
+                  <li><a href="index.html#testimonials-section" >Testimonials</a></li>
+                  <li><a href="index.html#contact-section" >Contact Us</a></li>
                 </ul>
               </div>
               <div class="col-md-3">
                 <h2 class="footer-heading mb-4">Follow Us</h2>
-                <a href="https://github.com/diveintodeeplearning-villegas-portfolio/" class="pl-0 pr-3"><span class="icon-github"></span></a>
+                <a href="https://github.com/aisolutionsanddeeplearning/" class="pl-0 pr-3"><span class="icon-github"></span></a>
+                <a href="https://twitter.com/DiveIntoDL" class="p-2"><span class="icon-twitter"></span></a>
+                <a href="https://www.instagram.com/diveintodeeplearning/" class="p-2"><span class="icon-instagram"></span></a>
+                <a href="https://medium.com/@diveintodeeplearning" class="p-2"><span class="icon-medium"></span></a>
+                <!--<a href="https://www.youtube.com/channel/UCUOhZEbmS6nYlwyHfKo2JRg?view_as=subscriber" class="p-2"><span class="icon-youtube"></span></a>-->
                 <a href="https://www.linkedin.com/in/yazmin-v-52548a183/" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
               </div>
             </div>
@@ -353,16 +328,17 @@ form.findme2 input[type=text]:focus {outline:0;}
             <form  name="email-form" method="post" action="addemail.php" id="email-form"> <!--action="addemail.php" onsubmit="return false"-->
               <div class="input-group mb-3">
                 <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Name" aria-label="Name" aria-describedby="button-addon2" name="name" id="name" required>
-                <input type="email" class="form-control border-secondary text-white bg-transparent" placeholder="Email" aria-label="Email" aria-describedby="button-addon2" name="email" id ="email" required>
+                <input type="email" class="form-control border-secondary text-white bg-transparent" placeholder="Email" aria-label="Email" aria-describedby="button-addon2" name="email" id ="emailnews" required>
                 <div class="input-group-append "  >
                   <button class="btn btn-primary text-white" onSubmit="funcSubscribe()" type="submit" id="button-addon2" value="Subscribe" name="subscribe">Send </button>
                    
                 </div>
                 
               </div>
-             <span class="text-primary" id="subMessage">Thank you!<br><span class="text-white">You're subscribed!</span></span>
+          <!--
+           <span class="text-primary" id="subMessage">Thank you!<br><span class="text-white">You're subscribed!</span></span>
             <span class="text-white" id="failMessage">Please enter a valid email address</span>
-             
+             -->
 
 
             </form>
@@ -373,7 +349,7 @@ form.findme2 input[type=text]:focus {outline:0;}
             <div class="border-top pt-5">
             <p>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Dive Into Deep Learning <script>document.write(new Date().getFullYear());</script>
+            Dive Into Deep Learning 2020<!--<script>document.write(new Date().getFullYear());</script>--> <!--| AI for everybody with <i class="icon-heart text-danger" aria-hidden="true"></i>--> 
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
             </div>
@@ -403,149 +379,11 @@ form.findme2 input[type=text]:focus {outline:0;}
   <script src="js/jquery.sticky.js"></script>
 
   <script src="js/typed.js"></script>
-            <script>
-            var typed = new Typed('.typed-words', {
-            strings: [" Deep Learning"," Machine Learning"," Artificial Intelligence"],
-            typeSpeed: 80,
-            backSpeed: 80,
-            backDelay: 4000,
-            startDelay: 1000,
-            loop: true,
-            showCursor: true
-            });
-            </script>
 
-    <script src="js/typed.js"></script>
-            <script>
-            var typed = new Typed('.typed-words-portfolio', {
-            strings: [" Convolutional Neural Network"," Natural Language Processing"],
-            typeSpeed: 80,
-            backSpeed: 80,
-            backDelay: 4000,
-            startDelay: 1000,
-            loop: true,
-            showCursor: true
-            });
-            </script>
-
-  <script src="js/main.js"></script>
-
-<script  type="text/javascript">
-// When the user clicks on div, open the popup
-function funcSubscribe() {
- //var message = "<?PHP echo $message ?>"; 
- //   if(message == "success"){
-        // var x = document.getElementById("subMessage");
-          //   x.style.display = "inline-block";
-//} else {
-  //  var f = document.getElementById("failMessage");
-    //    f.style.display = "inline-block";
-//}
-}
-</script>
-<script>
-    var x = document.getElementById("subMessage");
-    x.style.display = "none";
-     
-    var f = document.getElementById("failMessage");
-    f.style.display = "none";
-
-    var cx = document.getElementById("subContactMessage");
-    cx.style.display = "none";
-     
-    var cf = document.getElementById("failContactMessage");
-    cf.style.display = "none";
-</script>
+ <script  src="js/main5.js?<?php echo filemtime('js/main5.js');?>" ></script>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
-<script>
-function validateEmail(email) {
-    var re = /\S+@\S+\.\S+/;
-    return re.test(email);
-}
-
-$email = $("#email-form [name='email']").val();
-
-$(document).ready(function(){
-$("#email-form").on("submit",function(e){
-e.preventDefault();
-if(validateEmail($("#email-form [name='email']").val()))
-{
-    var x = document.getElementById("subMessage");
-    x.style.display = "inline-block";
-
-     var f = document.getElementById("failMessage");
-    f.style.display = "none";
-
-    var sendData = $( this ).serialize();
-
-    $.ajax({
-        type: "POST",
-        url: "addemail.php",
-        data: sendData,
-        success: function(data){
-            $("#contact-form").find("input[type=text], input[type=email]").val("");
-        }
-    });
-}
-else{
-    var f = document.getElementById("failMessage");
-    f.style.display = "inline-block";
-
-     var x = document.getElementById("subMessage");
-    x.style.display = "none";
-}
-});
-});
-
-</script>
-
-<script>
-function validateEmail(email) {
-    var re = /\S+@\S+\.\S+/;
-    return re.test(email);
-}
-
-$email = $("#contact-form [name='email']").val();
-
-$(document).ready(function(){
-$("#contact-form").on("submit",function(e){
-e.preventDefault();
-if(validateEmail($("#contact-form [name='email']").val()))
-{
-    var x = document.getElementById("subContactMessage");
-    x.style.display = "inline-block";
-
-     var f = document.getElementById("failContactMessage");
-    f.style.display = "none";
-
-    var sendData = $( this ).serialize();
-
-    $.ajax({
-        type: "POST",
-        url: "add_and_send_message.php",
-        data: sendData,
-        success: function(data){
-            $("#contact-form").find("input[type=text], input[type=email], textarea").val("");
-        }
-    });
-
-
-}
-else{
-    var f = document.getElementById("failContactMessage");
-    f.style.display = "inline-block";
-
-     var x = document.getElementById("subContactMessage");
-    x.style.display = "none";
-}
-});
-});
-
-</script>
-
+<script src="js/scripts.js"></script>
 
   </body>
-<!--<script src="training_tf_js_model_in_browser/index_exercise.js"></script>-->
 </html>
