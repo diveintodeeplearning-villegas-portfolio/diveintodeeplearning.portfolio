@@ -221,7 +221,7 @@ jQuery(document).ready(function($) {
        
        if (hash.includes("#")){
             // window.location.href='index.html#'+hash[1];
-                window.location.pathname="/diveintodeeplearning.portfolio/"+hash;
+                window.location.pathname="/diveintodeeplearning.portfolio/index.html"+hash;
   //           window.location.hash=hash;
                  window.location.hash=hash;
                   $('html, body').animate({
