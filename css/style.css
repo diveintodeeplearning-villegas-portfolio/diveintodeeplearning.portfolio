@@ -1,4 +1,133 @@
 
+/* Game */
+   div.game-section{
+          
+          margin: auto;
+          border: 3px solid #32dbc6;
+      }
+
+/* Fashion */
+      div.fashion-section{
+          /*width:800px;
+          height:500px;*/
+          margin: auto;
+          border: 3px solid #32dbc6;
+      }
+      .crop img {
+           margin: -75px 0 0 -100px;
+    }
+      .responsive {
+           width: 100%;
+           height: auto;
+     }
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.7);
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 200px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+
+@media screen and (max-width: 800px) {
+  
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+  /* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 50% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 200px;
+  font-size: 50px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+ .hide-small{
+    display:none !important;
+}
+}
+
+@media screen and (min-width : 801px){/*@media only screenand (min-device-width : 801px)*/
+    .hide-medium{
+    display:none !important;
+        }
+    .hide-large{
+    display:none !important;
+}
+}
+
 /* Base */
 body {
   line-height: 1.7;
